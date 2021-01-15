@@ -27,7 +27,7 @@ sitemaps = {
 }
 
 urlpatterns = [
-#    path('admin/', admin.site.urls),
+    path('admin/', admin.site.urls),
     path('photos/', photosHome, name='photos'),
     path('photos/<str:page>', photosHome),
     path('', webHome, name='home'),
