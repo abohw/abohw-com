@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title>404 oh noes</title>
+
+  <meta name="viewport" content="initial-scale = 1.0,maximum-scale = 1.0" />
+ </head>
+
+ <style>
+
+ body {
+   font-family: 'Helvetica Neue', 'Helvetica', sans-serif;
+   background-color: #f1f2f6;
+   font-weight: 400;
+   margin: 0;
+ }
+
+ p,ul,li {
+     font-size: 16px;
+     color: #2f3542;
+ }
+
+ h1 {
+     font-size: 18px;
+     font-weight: 700;
+     color: #2f3542;
+ }
+
+  #container {
+      display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+      display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+      display: -ms-flexbox;      /* TWEENER - IE 10 */
+      display: -webkit-flex;     /* NEW - Chrome */
+      display: flex;             /* NEW, Spec - Opera 12.1, Firefox 20+ */
+      flex-direction: column;  /* make main axis vertical */
+      justify-content: center; /* center items vertically, in this case */
+      align-items: center;     /* center items horizontally, in this case */
+      height: 100vh;
+  }
+
+  .box {
+      width: 80%;
+      margin: 5px;
+      text-align: center;
+      align-content: center;
+  }
+
+ </style>
+
+ <body>
+
+  <div id="container">
+    <div class="box">
+
+      <h1>this page does not exist</h1>
+
+      <p>here is a cat gif instead</p>
+
+      <p><img src="https://media.giphy.com/media/ICOgUNjpvO0PC/giphy.gif" alt="cat gif"></p>
+
+    </div>
+  </div>
+
+ </body>
+
+</html>

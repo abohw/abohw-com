@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+
+<!--
+
+            $$$$$$$$              $$$$$$
+           m$$$$$$$$$          m$"""" "$$m
+           $$$$$$$$$$         $" m$$$$m""$m
+          mm$$$$$$$$$$$$$$$"" $     "$$mm$$
+          m""        """$$$$$mm      "$$$$$
+      mmm$$m$$m$$mmmmm   """"$$$"    m$$$"
+    ""$m   $$$""""""$$$mm            $$$$m
+       $                ""           mm$$$$
+     mm"                      mm$$$$$$$$$$$
+     $                      m$$$$""    ""$$$
+     $                      $$""       m "$$m
+    $                      """   mm$$$$$$$$$$
+    $                          m$$$$$""""$$$"
+     $  mm    mm               $$"       "$$
+     $ $"$$  $"$$                         "$""""
+      $"m"   "m$"                           m""""
+     m$ m"""m                                "mmm""
+    $ mmmm                                   ""
+ mmm$$""""""$$                                m""""$
+m$$"  mm$$$$$$$                                mm
+$$  $$$$$$$$$$$$         mmm                "$m "$m
+"$$$$$$$$$$$$$$$         m$m"                m     "
+ ""$$$$$$$$$$$$"       m$$$$                 ""mm
+   $""$$$$$""         m$$$$                m mmm "
+   "m              m$$$$$$            mm$mmmm  ""
+    ""mmm     mmm$$""$$$"            $$""m   "
+         """""   "$mm$"     m        $$
+                m         m$"        $$
+                "$$$$$mm$""          ""
+                   """"
+
+-->
+
+  <head>
+    <title>buncharted · alex bowman</title>
+
+    <link href="//fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+
+    {% load static %}
+    <link rel="icon" type="image/x-icon" href="{% static 'favicon.ico' %}">
+    <link rel="stylesheet" href="{% static 'css/simple-lightbox.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+    {% if page != '' %}
+    <meta name="robots" content="noindex, nofollow" />
+    <link rel="canonical" href="https://www.buncharted.com" />
+    {% endif %}
+
+    <meta name="viewport" content="initial-scale = 1.0,maximum-scale = 1.0" />
+    <meta property="og:title" content="buncharted · alex bowman">
+    <meta property="og:description" content=" ">
+    <meta property="og:url" content="https://buncharted.com">
+
+    <style>
+
+      .nav-item a:hover {
+        border-bottom: 1px solid #ff6b81 !important;
+        padding-bottom: 1px !important;
+      }
+
+    </style>
+
+  </head>
+
+  <body>
+
+    <nav class="navbar navbar-expand-md navbar-light" style="background-color: #f1f2f6;">
+      <div class="container-md">
+        <a class="navbar-brand" href="/photos" style="color: #2f3542;"><i class="fas fa-map-marked-alt fa-2x"></i></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" href="/photos" style="color: #2f3542; font-size: 18px;">Latest</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/photos/people" style="color: #2f3542; font-size: 18px;">People</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/photos/places" style="color: #2f3542; font-size: 18px;">Places</a>
+            </li> <!--
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" style="color: #353b48;" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Collections
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item" href="#">Action</a></li>
+                <li><a class="dropdown-item" href="#">Another action</a></li>
+              </ul>
+            </li> -->
+          </ul>
+          <ul class="navbar-nav justify-content-end">
+            <li class="nav-item">
+              <a class="nav-link" href="https://www.flickr.com/people/buncharted/" style="color: #ff6b81; font-size: 18px;" target="_blank"><i class="fab fa-flickr"></i></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://www.instagram.com/buncharted/" style="color: #ff6b81; font-size: 18px;" target="_blank"><i class="fab fa-instagram"></i></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="mailto:hi@abohw.com" style="color: #ff6b81; font-size: 18px;" target="_blank"><i class="far fa-paper-plane"></i></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    {% if page == '' %}
+    <div class="container-md" style="margin-top: 10px; background-color: #dfe4ea; padding: 25px;">
+      <div class="row align-items-center justify-content-center">
+        <div class="col-auto me-auto">
+
+          <h1 style="margin-bottom:20px;">Hi. I'm Alex, an amateur photographer based in Austin, Texas.</h1>
+          <p>This is my collection of favored photographs, mostly from traveling.</p>
+          <p>What's in my camera bag? Lately, I've been carrying a Fujifilm X-T4 and Canon AE-1 Program.</p>
+
+        </div>
+        <div class="col-auto">
+          <img src="{% static 'img/alex-with-camera.jpg' %}" alt="Alex Bowman" class="img-fluid img-thumbnail">
+        </div>
+      </div>
+    </div>
+    {% endif %}
+
+    {% if photos %}
+
+    <div class="container-md" style="margin-top: 10px;">
+      <div class="gallery">
+        <main class="grid">
+
+          {% for photo in photos %}
+            <div><a href="{{ photo.full }}">
+              <img src="{{ photo.thumb }}" alt="{{ photo.caption }}" loading="lazy" class="img-fluid img-thumbnail" style="max-height: 400px;">
+            </a></div>
+          {% endfor %}
+
+          <div class="clear"></div>
+
+        </main>
+      </div>
+    </div>
+
+    <nav class="navbar sticky-bottom navbar-light bg-light">
+      <div class="container-md justify-content-end">
+        <span class="navbar-text">
+          © 2021 Alex Bowman. All rights reserved.
+        </span>
+      </div>
+    </nav>
+
+    <script src="{% static 'js/simple-lightbox.min.js' %}"></script>
+    <script>
+      (function() {
+        var $gallery = new SimpleLightbox('.gallery a', {
+          disableRightClick: true,
+          showCounter: false,
+          animationSpeed: 200,
+          loop: false,
+          fadeSpeed: 100,
+        });
+      })();
+    </script>
+
+    {% if page == 'people' %}
+      <script src="{% static 'js/party.min.js' %}"></script>
+      <script src="{% static 'js/konami.js' %}"></script>
+      <script>
+        var easter_egg = new Konami(function() {
+          party.screen({
+            count: 500 * (window.innerWidth / 1980),
+            countVariation: 0.5,
+            angleSpan: 0,
+            yVelocity: -100,
+            yVelocityVariation: 2,
+            rotationVelocityLimit: 6,
+            scaleVariation: 0.8
+          });
+
+          window.setTimeout(function() {
+            var enableNsfw = confirm('nsfw mode enabled. continue?');
+            if(enableNsfw){ window.location.href = '?s=d'; } }, 2500);
+
+        });
+      </script>
+    {% endif %}
+    {% endif %}
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+
+  </body>
+
+</html>

@@ -1,0 +1,37 @@
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: #f1f2f6;
+  font-weight: 400;
+  margin: 0;
+}
+
+p,ul,li {
+    font-size: 16px;
+    color: #2f3542;
+}
+
+h1 {
+    font-size: 18px;
+    font-weight: 700;
+    color: #2f3542;
+}
+
+.vertical-center {
+  min-height: 80%;  /* Fallback for browsers do NOT support vh unit */
+  min-height: 80vh; /* These two lines are counted as one :-)       */
+  margin-top: 80px;
+  display: flex;
+  align-items: center;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 25px;
+  align-items: center;
+  justify-items: center;
+}
+
+.grid img {
+  max-width: 100%;
+}
