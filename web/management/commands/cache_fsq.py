@@ -12,7 +12,7 @@ class Command(BaseCommand):
     def add_arguments(self, parser):
         parser.add_argument(
             '--initial',
-            action='bulk_fill',
+            action='store_true',
             help='fill initial foursquare cache from nothing',
         )
 
