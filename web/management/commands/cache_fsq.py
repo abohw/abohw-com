@@ -10,7 +10,11 @@ class Command(BaseCommand):
     help = 'what'
 
     def add_arguments(self, parser):
-        parser.add_argument('initial', type=str)
+        parser.add_argument(
+            '--initial',
+            action='bulk_fill',
+            help='fill initial foursquare cache from nothing',
+        )
 
     def handle(self, *args, **options):
 
@@ -19,7 +23,7 @@ class Command(BaseCommand):
             client_secret=settings.FS_CLIENT_SECRET,
             access_token=settings.FS_ACCESS_TOKEN)
 
-        if options['initial'] == 'initial':
+        if options['initial']:
             places = fsq.users.all_checkins()
         else:
             places = fsq.users.checkins()['checkins']['items']
