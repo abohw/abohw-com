@@ -59,7 +59,7 @@ class Command(BaseCommand):
 
                         checkin.save()
 
-                        new =+ 1
+                        new += 1
 
             except KeyError:
                 pass
