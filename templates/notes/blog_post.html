@@ -35,7 +35,7 @@
             <div class="row row-cols-1 row-cols-md-3">
            {% for item in page.gallery_images.all %}
               <div class="col">
-                {% image item.image width-500 class="rounded" %}<br>
+                {% image item.image width-500 class="rounded img-fluid" %}<br>
                 <small>{{ item.caption }}</small>
               </div>
           {% endfor %}
