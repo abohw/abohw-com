@@ -64,6 +64,8 @@ INSTALLED_APPS = [
     'wagtail.core',
     'modelcluster',
     'taggit',
+    'cloudinary_storage',
+    'cloudinary',
     'photos',
     'notes',
     'web',
@@ -175,3 +177,5 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/notes/media/'
 
 WAGTAIL_SITE_NAME = 'abohw.com'
+
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
