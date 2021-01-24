@@ -14,6 +14,13 @@ class BlogIndexPage(Page):
         FieldPanel('intro', classname="full")
     ]
 
+    def get_context(self, request):
+        context = super(BlogIndexPage, self).get_context(request)
+        context['posts'] = BlogPost.objects.descendant_of(
+            self).live().order_by(
+            '-date')
+        return context
+
 
 class BlogPost(Page):
 
@@ -24,7 +31,7 @@ class BlogPost(Page):
     def main_image(self):
 
         gallery_item = self.gallery_images.first()
-        
+
         if gallery_item:
             return gallery_item.image
         else:
