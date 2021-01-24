@@ -1,7 +1,9 @@
 from django.core.management import BaseCommand
 from django.conf import settings
 from django.core.cache import cache
+from web.models import flickrCache
 
+import datetime
 import flickr_api
 from flickr_api.auth import AuthHandler
 
@@ -44,4 +46,17 @@ class Command(BaseCommand):
 
         cache.set('flickr_latest', self.prepPhotos(me.getPublicPhotos())[:50], None)
 
-        print("flickr cache updated successfully")
+        numPastYear = me.getPhotoCounts(
+            taken_dates='%s,%s' % (
+                datetime.datetime.strftime(datetime.date.today() - datetime.timedelta(days=365), '%Y-%m-%d'),
+                datetime.datetime.strftime(datetime.date.today(), '%Y-%m-%d'))
+        )[0]['count']
+
+        numTotal = me.getPhotos().info.total
+
+        flickrCache.objects.create(
+            numPastYear = numPastYear,
+            numTotal = numTotal,
+        )
+
+        print("flickr cache updated, %s photos in total" % (numTotal))

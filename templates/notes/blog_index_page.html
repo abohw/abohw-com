@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% load wagtailcore_tags wagtailimages_tags %}
+
+{% block title %}{{ page.title }}{% endblock %}
+
+{% block css-overrides %}
+
+  h1 {
+    font-weight: 700;
+    font-size: 42px;
+  }
+
+  p, h2 {
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 30px;
+  }
+
+{% endblock %}
+
+{% block body_class %}template-blogindexpage{% endblock %}
+
+{% block content %}
+
+    <div class="container-lg" style="margin-top: 25px;">
+
+      {% for post in page.get_children %}
+       {% with post=post.specific %}
+      <div class="row align-items-start justify-content-center" style="padding:15px;">
+
+        {% with post.main_image as main_image %}
+         {% if main_image %}
+        <div class="col-auto" style="padding: 10px;">
+          {% image main_image fill-160x100 class="img-thumbnail" %}
+        </div>
+         {% endif %}
+        {% endwith %}
+
+        <div class="col-auto">
+
+          <h4><a href="{% pageurl post %}" style="color: #0984e3; text-decoration: none;"><strong>{{ post.title }}</strong></a></h4>
+          <p><small>{{ post.specific.date }}</small></p>
+
+          <p>{{ post.specific.intro }}</p>
+
+        </div>
+      </div>
+       {% endwith %}
+      {% endfor %}
+
+{% endblock %}

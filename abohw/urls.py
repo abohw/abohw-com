@@ -14,12 +14,13 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path, re_path
+from django.urls import path, include
+from django.conf.urls.static import static
+from django.conf import settings
 from .sitemaps import StaticViewSitemap
 from django.conf.urls import handler404
-from django.conf import settings
 from django.contrib.sitemaps.views import sitemap
-from web.views import webHome
+from web.views import webHome, webProjects
 from photos.views import photosHome
 
 sitemaps = {
@@ -30,9 +31,11 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('photos/', photosHome, name='photos'),
     path('photos/<str:page>', photosHome),
+    path('notes/', include('notes.urls')),
     path('', webHome, name='home'),
+    path('projects/', webProjects, name='projects'),
     path('sitemap.xml', sitemap, {'sitemaps': sitemaps},
      name='django.contrib.sitemaps.views.sitemap')
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 handler404 = 'web.views.error404'

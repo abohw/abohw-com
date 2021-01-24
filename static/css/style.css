@@ -1,37 +1,22 @@
-body {
-  font-family: 'Roboto', sans-serif;
-  background-color: #f1f2f6;
-  font-weight: 400;
-  margin: 0;
-}
 
-p,ul,li {
-    font-size: 16px;
-    color: #2f3542;
-}
+  body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f1f2f6;
+    font-weight: 400;
+    margin: 0;
+  }
 
-h1 {
-    font-size: 18px;
+  h1 {
     font-weight: 700;
-    color: #2f3542;
-}
+    font-size: 42px;
+  }
 
-.vertical-center {
-  min-height: 80%;  /* Fallback for browsers do NOT support vh unit */
-  min-height: 80vh; /* These two lines are counted as one :-)       */
-  margin-top: 80px;
-  display: flex;
-  align-items: center;
-}
+  p, h2 {
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 30px;
+  }
 
-.grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 25px;
-  align-items: center;
-  justify-items: center;
-}
-
-.grid img {
-  max-width: 100%;
-}
+  p.social {
+    letter-spacing: 12px;
+  }
