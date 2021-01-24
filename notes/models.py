@@ -18,7 +18,7 @@ class BlogIndexPage(Page):
         context = super(BlogIndexPage, self).get_context(request)
         context['posts'] = BlogPost.objects.descendant_of(
             self).live().order_by(
-            '-date')
+            '-first_published_at')
         return context
 
 
