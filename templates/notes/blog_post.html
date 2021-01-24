@@ -1,7 +1,9 @@
 {% extends 'base.html' %}
 {% load wagtailcore_tags wagtailimages_tags %}
 
-{% block title %}{{ page.title }}{% endblock %}
+{% block title %}{{ page.title|lower }}{% endblock %}
+{% block og-title %}{{ page.title|lower }}{% endblock %}
+{% block og-description %}{{ page.intro|striptags }}{% endblock %}
 
 {% block body_class %}template-blogpage{% endblock %}
 

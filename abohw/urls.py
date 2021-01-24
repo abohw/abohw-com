@@ -20,7 +20,7 @@ from django.conf import settings
 from .sitemaps import StaticViewSitemap
 from django.conf.urls import handler404
 from django.contrib.sitemaps.views import sitemap
-from web.views import webHome, webProjects
+from web.views import webHome
 from photos.views import photosHome
 
 sitemaps = {
@@ -33,7 +33,6 @@ urlpatterns = [
     path('photos/<str:page>', photosHome),
     path('notes/', include('notes.urls')),
     path('', webHome, name='home'),
-    path('projects/', webProjects, name='projects'),
     path('sitemap.xml', sitemap, {'sitemaps': sitemaps},
      name='django.contrib.sitemaps.views.sitemap')
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

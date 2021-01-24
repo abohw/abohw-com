@@ -1,6 +1,4 @@
 from django.shortcuts import render
-from django.template.loader import get_template
-from django.http import HttpResponse
 from django.db.models import Count
 from .models import Checkin, flickrCache
 
@@ -13,29 +11,16 @@ def error404(request, exception):
 
 def webHome(request):
 
-    t = get_template('index.html')
-
     countries = Checkin.objects.values('country').annotate(cc=Count('country')).count()
     states = Checkin.objects.filter(country='United States').values('state').annotate(cc=Count('state')).count()
     coffee_shops = Checkin.objects.filter(date__range=[datetime.date.today() - datetime.timedelta(days=365), datetime.date.today()]).filter(category__exact='Coffee Shops').values('venueid').distinct().count()
     places = Checkin.objects.filter(date__range=[datetime.date.today() - datetime.timedelta(days=365), datetime.date.today()]).values('venueid').distinct().count()
     photos = flickrCache.objects.latest().numPastYear
 
-    html = t.render({
-    'numCountries': countries,
-    'numStates': states,
-    'numCoffeeShops': coffee_shops,
-    'numPlaces' : places,
-    'numPhotos' : photos,
-    })
-
-    return HttpResponse(html)
-
-
-def webProjects(request):
-
-    t = get_template('projects.html')
-
-    html = t.render({ })
-
-    return HttpResponse(html)
+    return render(request, 'index.html', {
+        'numCountries': countries,
+        'numStates': states,
+        'numCoffeeShops': coffee_shops,
+        'numPlaces' : places,
+        'numPhotos' : photos,
+        })

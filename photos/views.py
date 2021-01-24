@@ -1,5 +1,4 @@
-from django.template.loader import get_template
-from django.http import HttpResponse
+from django.shortcuts import render
 from django.conf import settings
 from django.core.cache import cache
 
@@ -7,19 +6,15 @@ import random
 
 def photosHome(request, page=''):
 
-    t = get_template('photos/index.html')
-
     try:
         photos = getCollection(page, (request.GET.get('s') == 'd'))
 
     except:
         photos = None
 
-    html = t.render({
-        'photos' : photos,
-        'page' : page, })
-
-    return HttpResponse(html)
+    return render(request, 'photos/index.html', {
+            'photos' : photos,
+            'page' : page, })
 
 def getCollection(page, nsfw):
 

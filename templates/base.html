@@ -49,9 +49,9 @@ $$  $$$$$$$$$$$$         mmm                "$m "$m
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 
     <meta name="viewport" content="initial-scale = 1.0,maximum-scale = 1.0" />
-    <meta property="og:title" content="abohw.com · alex bowman">
-    <meta property="og:description" content=" ">
-    <meta property="og:url" content="https://abohw.com">
+    <meta property="og:title" content="abohw.com · {% block og-title %}{% endblock %}">
+    <meta property="og:description" content="{% block og-description %}{% endblock %}">
+    <meta property="og:url" content="https://abohw.com{{ request.path }}">
 
     <style>
 
