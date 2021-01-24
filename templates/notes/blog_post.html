@@ -3,46 +3,45 @@
 
 {% block title %}{{ page.title }}{% endblock %}
 
-{% block css-overrides %}
-
-
-{% endblock %}
-
 {% block body_class %}template-blogpage{% endblock %}
 
 {% block content %}
 
-    <div class="container-lg" style="margin-top: 25px;">
+    <div class="container-lg" style="margin-top: 10px;">
 
-      <div class="row align-items-center justify-content-center">
-        <div class="col-auto me-auto">
+      <div class="row g-2 align-items-center justify-content-center">
+        <div class="col">
+          <div class="p-2">
 
-          <h3><strong>{{ page.title }}</strong></h3>
-          <p><small>{{ page.date }}</small></p>
+            <h3><strong>{{ page.title }}</strong></h3>
+            <p><small>{{ page.date }}</small></p>
 
+          </div>
         </div>
       </div>
 
-      <div class="row align-items-center justify-content-center">
-        <div class="col-auto me-auto">
+      <div class="row g-2 align-items-center justify-content-center">
+        <div class="col">
+          <div class="p-2">
 
-          <p class="lead">{{ page.intro }}</p>
+            <p class="lead" style="padding-bottom: 15px;">{{ page.intro }}</p>
 
-          <p>{{ page.body|richtext }}</p>
+            <p>{{ page.body|richtext }}</p>
 
-          {% if page.gallery_images %}
-          <div class="container-flex" style="padding-bottom: 10px;">
-            <div class="row row-cols-1 row-cols-md-3">
-           {% for item in page.gallery_images.all %}
-              <div class="col">
-                {% image item.image width-500 class="rounded img-fluid" %}<br>
-                <small>{{ item.caption }}</small>
-              </div>
-          {% endfor %}
+            {% if page.gallery_images %}
+            <div class="container-flex">
+              <div class="row row-cols-1 row-cols-md-3">
+             {% for item in page.gallery_images.all %}
+                <div class="col">
+                  {% image item.image width-500 class="rounded img-fluid" %}<br>
+                  <small>{{ item.caption }}</small>
+                </div>
+            {% endfor %}
+            </div>
            </div>
-          </div>
           {% endif %}
 
+          </div>
         </div>
       </div>
 
