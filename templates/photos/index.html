@@ -12,15 +12,15 @@
     <div class="container-flex" style="background-color: #636e72; padding: 10px;">
       <div class="container-lg">
 
-        <div class="row row-cols-1 align-items-center justify-content-between">
-          <div class="col-auto">
+        <div class="row align-items-center">
+          <div class="col justify-content-start">
 
             <a href="/photos" style="color: #dfe6e9; text-decoration: none;">Latest</a> &emsp;&emsp;&emsp;&emsp;
             <a href="/photos/people" style="color: #dfe6e9; text-decoration: none;">People</a> &emsp;&emsp;&emsp;&emsp;
             <a href="/photos/places" style="color: #dfe6e9; text-decoration: none;">Places</a>
 
           </div>
-          <div class="col-auto">
+          <div class="col-auto justify-content-end">
 
             <a style="color: #81ecec; text-decoration: none;" href="https://flickr.com/people/buncharted/" target="_blank"><i class="fab fa-flickr"></i></a>
             &emsp;&emsp;&emsp;&emsp;
@@ -53,19 +53,6 @@
       </div>
     </nav>
 
-    <script src="{% static 'js/simple-lightbox.min.js' %}"></script>
-    <script>
-      (function() {
-        var $gallery = new SimpleLightbox('.gallery a', {
-          disableRightClick: true,
-          showCounter: false,
-          animationSpeed: 200,
-          loop: false,
-          fadeSpeed: 100,
-        });
-      })();
-    </script>
-
     {% if page == 'people' %}
       <script src="{% static 'js/party.min.js' %}"></script>
       <script src="{% static 'js/konami.js' %}"></script>
@@ -88,6 +75,19 @@
         });
       </script>
     {% endif %}
+
+    <script src="{% static 'js/simple-lightbox.min.js' %}"></script>
+    <script>
+      (function() {
+        var $gallery = new SimpleLightbox('.gallery a', {
+          disableRightClick: true,
+          showCounter: false,
+          animationSpeed: 200,
+          loop: false,
+          fadeSpeed: 100,
+        });
+      })();
+    </script>
     {% endif %}
 
 {% endblock %}
