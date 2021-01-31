@@ -7,24 +7,24 @@
 
 {% block content %}
 
-    <div class="container-flex" style="background-color: #636e72; padding: 10px;">
+    <div class="container-flex" style="padding: 10px;">
       <div class="container-lg">
 
         <div class="row align-items-center justify-content-between">
           <div class="col-8 col-md-auto">
 
-            <a href="/photos" style="color: #dfe6e9; text-decoration: none;">Latest</a> &emsp;&emsp;
-            <a href="/photos/people" style="color: #dfe6e9; text-decoration: none;">People</a> &emsp;&emsp;
-            <a href="/photos/places" style="color: #dfe6e9; text-decoration: none;">Places</a>
+            <a href="/photos" style="color: #2d3436; text-decoration: none;">Latest</a> &emsp;&emsp;
+            <a href="/photos/people" style="color: #2d3436; text-decoration: none;">People</a> &emsp;&emsp;
+            <a href="/photos/places" style="color: #2d3436; text-decoration: none;">Places</a>
 
           </div>
-          <div class="col-auto">
+          <!-- <div class="col-auto">
 
-            <a style="color: #81ecec; text-decoration: none;" href="https://flickr.com/people/buncharted/" target="_blank"><i class="fab fa-flickr"></i></a>
+            <a style="color: #fd79a8; font-size: 18px; text-decoration: none;" href="https://flickr.com/people/buncharted/" target="_blank"><i class="fab fa-flickr"></i></a>
             &emsp;&emsp;&emsp;&emsp;
-            <a style="color: #81ecec; text-decoration: none;" href="https://instagram.com/abohw" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a style="color: #fd79a8; font-size: 18px; text-decoration: none;" href="https://instagram.com/abohw" target="_blank"><i class="fab fa-instagram"></i></a>
 
-          </div>
+          </div> -->
         </div>
       </div>
     </div>
@@ -51,7 +51,7 @@
       </div>
     </nav>
 
-    {% if page == 'people' %}
+    {% if request.path == '/photos/people' %}
       <script src="{% static 'js/party.min.js' %}"></script>
       <script src="{% static 'js/konami.js' %}"></script>
       <script>
@@ -67,8 +67,8 @@
           });
 
           window.setTimeout(function() {
-            var disableSfw = confirm('nsfw mode enabled. continue?');
-            if(disableSfw){ window.location.href = '?s=d'; } }, 2500);
+            var viewRandom = confirm('you\'ve unlocked a random photo. continue?');
+            if(viewRandom){ window.location.href = '/photos/random'; } }, 2500);
 
         });
       </script>

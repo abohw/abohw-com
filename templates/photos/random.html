@@ -37,7 +37,7 @@ $$  $$$$$$$$$$$$         mmm                "$m "$m
 -->
 
   <head>
-    <title>abohw.com · {% block title %}{% endblock %}</title>
+    <title>abohw.com · a random photo</title>
 
     <link href="//fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
@@ -45,60 +45,29 @@ $$  $$$$$$$$$$$$         mmm                "$m "$m
 
     {% load static %}
     <link rel="icon" type="image/x-icon" href="{% static 'favicon.ico' %}">
-    <link rel="stylesheet" href="{% static 'css/simple-lightbox.min.css' %}">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 
-    {% if request.path == '/photos/random' %}
     <meta name="robots" content="noindex">
-    {% endif %}
-
     <meta name="viewport" content="initial-scale = 1.0,maximum-scale = 1.0" />
-    <meta property="og:title" content="abohw.com · {% block og-title %}{% endblock %}">
-    <meta property="og:description" content="{% block og-description %}{% endblock %}">
-    <meta property="og:url" content="https://abohw.com{{ request.path }}">
-
-    <style>
-
-      {% block css-overrides %}{% endblock %}
-
-    </style>
 
   </head>
 
   <body>
 
-    <nav class="navbar navbar-expand-lg navbar-light">
-      <div class="container-lg align-items-start">
-        <a class="navbar-brand" href="/"><img src="{% static 'img/logo.png' %}" style="max-width: 125px;"></a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-              <a class="nav-link" href="/" style="color: #2d3436;">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/notes" style="color: #2d3436;">Notes</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/photos" style="color: #2d3436;">Photos</a>
-            </li>
-          </ul>
-          <ul class="navbar-nav justify-content-end">
-            <li class="nav-item">
-              <a class="nav-link" href="mailto:hi@abohw.com" style="color: #fd79a8; font-size: 18px;" target="_blank"><i class="far fa-paper-plane"></i></a>
-            </li>
-          </ul>
-        </div>
+    <div class="container-md" style="padding: 45px;">
+
+      <img class="img-fluid rounded mx-auto d-block"
+        src="{{ photo.full }}" loading="lazy" alt="{{ photo.caption }}">
+
       </div>
-    </nav>
 
-    {% block content %}
-    {% endblock %}
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+      <nav class="navbar sticky-bottom navbar-light bg-light">
+        <div class="container-md justify-content-end">
+          <span class="navbar-text">
+            © 2021 Alex Bowman. All rights reserved.
+          </span>
+        </div>
+      </nav>
 
   </body>
-
 </html>

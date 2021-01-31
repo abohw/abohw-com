@@ -3,6 +3,7 @@ from django.conf import settings
 from django.core.cache import cache
 from web.models import flickrCache
 
+import random
 import datetime
 import flickr_api
 from flickr_api.auth import AuthHandler
@@ -16,6 +17,13 @@ me = flickr_api.test.login()
 class Command(BaseCommand):
 
     help = "fill the cache with flickr data"
+
+    def add_arguments(self, parser):
+        parser.add_argument(
+            '--random',
+            action='store_true',
+            help='only change the random photo',
+        )
 
     def prepPhotos(self, photos):
 
@@ -37,26 +45,33 @@ class Command(BaseCommand):
 
     def handle(self, *args, **options):
 
-        albums = me.getPhotosets()
-        for album in albums:
-            if album['id'] == '72157717269347353':
-                cache.set('flickr_people', self.prepPhotos(album.getPhotos()), None)
-            if album['id'] == '72157717269334156':
-                cache.set('flickr_places', self.prepPhotos(album.getPhotos()), None)
+        allPhotos = self.prepPhotos(me.getPhotos())
+        cache.set('flickr_random', allPhotos[random.randint(0, len(allPhotos)-1)], None)
 
-        cache.set('flickr_latest', self.prepPhotos(me.getPublicPhotos())[:50], None)
+        if not options['random']:
 
-        numPastYear = me.getPhotoCounts(
-            taken_dates='%s,%s' % (
-                datetime.datetime.strftime(datetime.date.today() - datetime.timedelta(days=365), '%Y-%m-%d'),
-                datetime.datetime.strftime(datetime.date.today(), '%Y-%m-%d'))
-        )[0]['count']
+            albums = me.getPhotosets()
+            for album in albums:
+                if album['id'] == '72157717269347353':
+                    cache.set('flickr_people', self.prepPhotos(album.getPhotos()), None)
+                if album['id'] == '72157717269334156':
+                    cache.set('flickr_places', self.prepPhotos(album.getPhotos()), None)
 
-        numTotal = me.getPhotos().info.total
+            cache.set('flickr_latest', self.prepPhotos(me.getPublicPhotos())[:50], None)
 
-        flickrCache.objects.create(
-            numPastYear = numPastYear,
-            numTotal = numTotal,
-        )
+            numPastYear = me.getPhotoCounts(
+                taken_dates='%s,%s' % (
+                    datetime.datetime.strftime(datetime.date.today() - datetime.timedelta(days=365), '%Y-%m-%d'),
+                    datetime.datetime.strftime(datetime.date.today(), '%Y-%m-%d'))
+            )[0]['count']
 
-        print("flickr cache updated, %s photos in total" % (numTotal))
+            numTotal = me.getPhotos().info.total
+
+            flickrCache.objects.create(
+                numPastYear = numPastYear,
+                numTotal = numTotal,
+            )
+
+            print('flickr cache updated, %s photos in total' % (numTotal))
+
+        else: print('updated random photo')

@@ -4,17 +4,22 @@ from django.core.cache import cache
 
 import random
 
+
+def randomPhoto(request):
+
+    return render(request, 'photos/random.html', { 'photo' : cache.get('flickr_random') })
+
+
 def photosHome(request, page=''):
 
     try:
-        photos = getCollection(page, (request.GET.get('s') == 'd'))
+        photos = getCollection(page, False)
 
     except:
         photos = None
 
-    return render(request, 'photos/index.html', {
-            'photos' : photos,
-            'page' : page, })
+    return render(request, 'photos/index.html', { 'photos' : photos })
+
 
 def getCollection(page, nsfw):
 
