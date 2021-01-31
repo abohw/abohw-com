@@ -32,7 +32,7 @@ class Command(BaseCommand):
         for photo in photos:
             p = flickr_api.Photo.getInfo(photo)
 
-            if p['ispublic'] == 1 or p['isfriend'] == 1:
+            if p['ispublic'] == 1 or (p['isfriend'] == 1 and p['safety_level'] == '0'):
 
                 results.append({
                     'thumb': 'https://farm%s.staticflickr.com/%s/%s_%s_c.jpg' % (p['farm'], p['server'], p['id'], p['secret']),
