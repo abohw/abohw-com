@@ -13,7 +13,7 @@ def randomPhoto(request):
 def photosHome(request, page=''):
 
     try:
-        photos = getCollection(page, False)
+        photos = getCollection(page)
 
     except:
         photos = None
@@ -21,7 +21,7 @@ def photosHome(request, page=''):
     return render(request, 'photos/index.html', { 'photos' : photos })
 
 
-def getCollection(page, nsfw):
+def getCollection(page):
 
     display = 30
 
@@ -35,14 +35,11 @@ def getCollection(page, nsfw):
         photos = cache.get('flickr_latest')
         display = 15
 
-    if nsfw is False:
-        collection = []
+    collection = []
 
-        for photo in photos:
-            if photo['sfw'] is True:
-                collection.append(photo)
-
-    else: collection = photos
+    for photo in photos:
+        if photo['sfw'] is True:
+            collection.append(photo)
 
     collection = collection[:display]
     return random.sample(collection, len(collection))
