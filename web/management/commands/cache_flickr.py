@@ -45,7 +45,7 @@ class Command(BaseCommand):
 
     def handle(self, *args, **options):
 
-        allPhotos = self.prepPhotos(me.getPublicPhotos())
+        allPhotos = self.prepPhotos(me.getPublicPhotos(safe_search='2', per_page='500'))
         cache.set('flickr_random', allPhotos[random.randint(0, len(allPhotos)-1)], None)
 
         if not options['random']:
