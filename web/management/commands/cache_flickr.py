@@ -45,7 +45,7 @@ class Command(BaseCommand):
 
     def handle(self, *args, **options):
 
-        allPhotos = self.prepPhotos(me.getPhotos())
+        allPhotos = self.prepPhotos(me.getPublicPhotos())
         cache.set('flickr_random', allPhotos[random.randint(0, len(allPhotos)-1)], None)
 
         if not options['random']:
@@ -57,7 +57,7 @@ class Command(BaseCommand):
                 if album['id'] == '72157717269334156':
                     cache.set('flickr_places', self.prepPhotos(album.getPhotos()), None)
 
-            cache.set('flickr_latest', self.prepPhotos(me.getPublicPhotos())[:50], None)
+            cache.set('flickr_latest', allPhotos[:50], None)
 
             numPastYear = me.getPhotoCounts(
                 taken_dates='%s,%s' % (
