@@ -18,13 +18,6 @@ class Command(BaseCommand):
 
     help = "fill the cache with flickr data"
 
-    def add_arguments(self, parser):
-        parser.add_argument(
-            '--random',
-            action='store_true',
-            help='only change the random photo',
-        )
-
     def prepPhotos(self, photos):
 
         results = []
@@ -32,7 +25,7 @@ class Command(BaseCommand):
         for photo in photos:
             p = flickr_api.Photo.getInfo(photo)
 
-            if p['ispublic'] == 1 or (p['isfriend'] == 1 and p['safety_level'] == '0'):
+            if p['ispublic'] == 1 or p['isfriend'] == 1:
 
                 results.append({
                     'thumb': 'https://farm%s.staticflickr.com/%s/%s_%s_c.jpg' % (p['farm'], p['server'], p['id'], p['secret']),
@@ -45,33 +38,28 @@ class Command(BaseCommand):
 
     def handle(self, *args, **options):
 
-        allPhotos = self.prepPhotos(me.getPublicPhotos(safe_search='2', per_page='500'))
-        cache.set('flickr_random', allPhotos[random.randint(0, len(allPhotos)-1)], None)
+        albums = me.getPhotosets()
+        for album in albums:
+            if album['id'] == '72157717269347353':
+                cache.set('flickr_people', self.prepPhotos(album.getPhotos()), None)
+            if album['id'] == '72157717269334156':
+                cache.set('flickr_places', self.prepPhotos(album.getPhotos()), None)
+            if album['id'] == '72157718184167491':
+                cache.set('flickr_faves', self.prepPhotos(album.getPhotos(safe_search='1', per_page='250')), None)
 
-        if not options['random']:
+        cache.set('flickr_latest', self.prepPhotos(me.getPublicPhotos(safe_search='1')), None)
 
-            albums = me.getPhotosets()
-            for album in albums:
-                if album['id'] == '72157717269347353':
-                    cache.set('flickr_people', self.prepPhotos(album.getPhotos()), None)
-                if album['id'] == '72157717269334156':
-                    cache.set('flickr_places', self.prepPhotos(album.getPhotos()), None)
+        numPastYear = me.getPhotoCounts(
+            taken_dates='%s,%s' % (
+                datetime.datetime.strftime(datetime.date.today() - datetime.timedelta(days=365), '%Y-%m-%d'),
+                datetime.datetime.strftime(datetime.date.today(), '%Y-%m-%d'))
+        )[0]['count']
 
-            cache.set('flickr_latest', allPhotos[:50], None)
+        numTotal = me.getPhotos().info.total
 
-            numPastYear = me.getPhotoCounts(
-                taken_dates='%s,%s' % (
-                    datetime.datetime.strftime(datetime.date.today() - datetime.timedelta(days=365), '%Y-%m-%d'),
-                    datetime.datetime.strftime(datetime.date.today(), '%Y-%m-%d'))
-            )[0]['count']
+        flickrCache.objects.create(
+            numPastYear = numPastYear,
+            numTotal = numTotal,
+        )
 
-            numTotal = me.getPhotos().info.total
-
-            flickrCache.objects.create(
-                numPastYear = numPastYear,
-                numTotal = numTotal,
-            )
-
-            print('flickr cache updated, %s photos in total' % (numTotal))
-
-        else: print('updated random photo')
+        print('flickr cache updated, %s photos in total' % (numTotal))

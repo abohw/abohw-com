@@ -18,13 +18,13 @@
             <a href="/photos/places" style="color: #2d3436; text-decoration: none;">Places</a>
 
           </div>
-          <!-- <div class="col-auto">
+          <div class="col-auto">
 
-            <a style="color: #fd79a8; font-size: 18px; text-decoration: none;" href="https://flickr.com/people/buncharted/" target="_blank"><i class="fab fa-flickr"></i></a>
-            &emsp;&emsp;&emsp;&emsp;
-            <a style="color: #fd79a8; font-size: 18px; text-decoration: none;" href="https://instagram.com/abohw" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a style="color: #fd79a8; text-decoration: none;" href="https://flickr.com/people/buncharted/" target="_blank"><i class="fab fa-flickr"></i> Flickr</a>
+            &emsp;&emsp;
+            <a style="color: #fd79a8; text-decoration: none;" href="https://instagram.com/buncharted" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
 
-          </div> -->
+          </div>
         </div>
       </div>
     </div>
@@ -50,29 +50,6 @@
         </span>
       </div>
     </nav>
-
-    {% if request.path == '/photos/people' %}
-      <script src="{% static 'js/party.min.js' %}"></script>
-      <script src="{% static 'js/konami.js' %}"></script>
-      <script>
-        var easter_egg = new Konami(function() {
-          party.screen({
-            count: 500 * (window.innerWidth / 1980),
-            countVariation: 0.5,
-            angleSpan: 0,
-            yVelocity: -100,
-            yVelocityVariation: 2,
-            rotationVelocityLimit: 6,
-            scaleVariation: 0.8
-          });
-
-          window.setTimeout(function() {
-            var viewRandom = confirm('you\'ve unlocked a random photo. continue?');
-            if(viewRandom){ window.location.href = '/photos/random'; } }, 2500);
-
-        });
-      </script>
-    {% endif %}
 
     <script src="{% static 'js/simple-lightbox.min.js' %}"></script>
     <script>

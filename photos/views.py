@@ -5,11 +5,6 @@ from django.core.cache import cache
 import random
 
 
-def randomPhoto(request):
-
-    return render(request, 'photos/random.html', { 'photo' : cache.get('flickr_random') })
-
-
 def photosHome(request, page=''):
 
     try:

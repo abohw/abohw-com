@@ -44,8 +44,26 @@
 
     </div>
 
-  <!--
-  <div class="container-xl" style="padding-top: 65px; padding-bottom: 25px;">
+    <div class="container-fluid" style="background: #b2bec3; margin-top: 10px;">
+
+      <div class="container-md">
+
+        <div class="row row-cols-1 row-cols-md-4 justify-content-between align-items-center">
+
+          {% for photo in photos %}
+          <div class="col" style="padding: 25px;">
+            <img class="img-fluid img-thumbnail rounded mx-auto d-block" style="max-height: 250px;"
+              src="{{ photo.thumb }}" loading="lazy" alt="{{ photo.caption }}">
+          </div>
+          {% endfor %}
+
+        </div>
+
+      </div>
+
+    </div>
+
+  <div class="container-md" style="margin-top: 25px; margin-bottom: 25px;">
 
     <div class="row row-cols-1 row-cols-md-4 g-4">
       <div class="col">
@@ -125,7 +143,25 @@
     </div>
 
   </div>
-  -->
 
+  <script src="{% static 'js/party.min.js' %}"></script>
+  <script src="{% static 'js/konami.js' %}"></script>
+  <script>
+    var easter_egg = new Konami(function() {
+      party.screen({
+        count: 500 * (window.innerWidth / 1980),
+        countVariation: 0.5,
+        angleSpan: 0,
+        yVelocity: -100,
+        yVelocityVariation: 2,
+        rotationVelocityLimit: 6,
+        scaleVariation: 0.8
+      });
+
+      window.setTimeout(function() {
+        var viewRandom = window.location.href = '?s=p'; }, 2500);
+
+    });
+  </script>
 
 {% endblock %}

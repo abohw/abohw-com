@@ -48,7 +48,7 @@ $$  $$$$$$$$$$$$         mmm                "$m "$m
     <link rel="stylesheet" href="{% static 'css/simple-lightbox.min.css' %}">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 
-    {% if request.path == '/photos/random' %}
+    {% if 'photos' in request.path %}
     <meta name="robots" content="noindex">
     {% endif %}
 
@@ -65,7 +65,7 @@ $$  $$$$$$$$$$$$         mmm                "$m "$m
 
   </head>
 
-  <body>
+  {% if 'photos' in request.path %}<body oncontextmenu="return false;">{% else %}<body>{% endif %}
 
     <nav class="navbar navbar-expand-lg navbar-light">
       <div class="container-lg align-items-start">
@@ -81,9 +81,11 @@ $$  $$$$$$$$$$$$         mmm                "$m "$m
             <li class="nav-item">
               <a class="nav-link" href="/notes" style="color: #2d3436;">Notes</a>
             </li>
+            {% if request.COOKIES.photos or 'photos' in request.path or request.GET.s == 'p' %}
             <li class="nav-item">
               <a class="nav-link" href="/photos" style="color: #2d3436;">Photos</a>
             </li>
+            {% endif %}
           </ul>
           <ul class="navbar-nav justify-content-end">
             <li class="nav-item">
