@@ -35,6 +35,6 @@ def webHome(request):
         })
 
     if request.GET.get('s') == 'p':
-        response.set_cookie(key='photos', value=True)
+        response.set_cookie(key='photos', value=True, max_age=7200)
 
     return response

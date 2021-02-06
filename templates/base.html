@@ -81,7 +81,7 @@ $$  $$$$$$$$$$$$         mmm                "$m "$m
             <li class="nav-item">
               <a class="nav-link" href="/notes" style="color: #2d3436;">Notes</a>
             </li>
-            {% if request.COOKIES.photos or 'photos' in request.path or request.GET.s == 'p' %}
+            {% if request.COOKIES.photos or 'photos' in request.path or request.GET.s == 'p' or user.is_authenticated %}
             <li class="nav-item">
               <a class="nav-link" href="/photos" style="color: #2d3436;">Photos</a>
             </li>
