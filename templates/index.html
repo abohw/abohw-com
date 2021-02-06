@@ -159,7 +159,11 @@
       });
 
       window.setTimeout(function() {
-        var viewRandom = window.location.href = '?s=p'; }, 2500);
+        var date = new Date();
+        date.setTime(date.getTime() + 7200000);
+        document.cookie = "photos=true;expires=" + date.toUTCString();
+        window.location.reload(true);
+      }, 2500);
 
     });
   </script>
