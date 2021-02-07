@@ -29,7 +29,7 @@ class Command(BaseCommand):
 
                 results.append({
                     'thumb': 'https://farm%s.staticflickr.com/%s/%s_%s_c.jpg' % (p['farm'], p['server'], p['id'], p['secret']),
-                    'full': 'https://farm%s.staticflickr.com/%s/%s_%s_h.jpg' % (p['farm'], p['server'], p['id'], p['secret']),
+                    'full': 'https://farm%s.staticflickr.com/%s/%s_%s_b.jpg' % (p['farm'], p['server'], p['id'], p['secret']),
                     'caption': p['title'],
                 })
 
