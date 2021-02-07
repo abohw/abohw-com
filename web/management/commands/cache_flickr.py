@@ -29,9 +29,8 @@ class Command(BaseCommand):
 
                 results.append({
                     'thumb': 'https://farm%s.staticflickr.com/%s/%s_%s_c.jpg' % (p['farm'], p['server'], p['id'], p['secret']),
-                    'full': 'https://farm%s.staticflickr.com/%s/%s_%s_b.jpg' % (p['farm'], p['server'], p['id'], p['secret']),
+                    'full': 'https://farm%s.staticflickr.com/%s/%s_%s_h.jpg' % (p['farm'], p['server'], p['id'], p['secret']),
                     'caption': p['title'],
-                    'sfw': (p['safety_level'] == '0'),
                 })
 
         return results
@@ -41,13 +40,13 @@ class Command(BaseCommand):
         albums = me.getPhotosets()
         for album in albums:
             if album['id'] == '72157717269347353':
-                cache.set('flickr_people', self.prepPhotos(album.getPhotos()), None)
+                cache.set('flickr_people', self.prepPhotos(album.getPhotos(safe_search='2')), None)
             if album['id'] == '72157717269334156':
-                cache.set('flickr_places', self.prepPhotos(album.getPhotos()), None)
+                cache.set('flickr_places', self.prepPhotos(album.getPhotos(safe_search='2')), None)
             if album['id'] == '72157718184167491':
                 cache.set('flickr_faves', self.prepPhotos(album.getPhotos(safe_search='1', per_page='250')), None)
 
-        cache.set('flickr_latest', self.prepPhotos(me.getPublicPhotos(safe_search='1')), None)
+        cache.set('flickr_latest', self.prepPhotos(me.getPublicPhotos(safe_search='1', per_page='30')), None)
 
         numPastYear = me.getPhotoCounts(
             taken_dates='%s,%s' % (

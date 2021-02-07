@@ -30,11 +30,5 @@ def getCollection(page):
         photos = cache.get('flickr_latest')
         display = 15
 
-    collection = []
-
-    for photo in photos:
-        if photo['sfw'] is True:
-            collection.append(photo)
-
-    collection = collection[:display]
-    return random.sample(collection, len(collection))
+    photos = photos[:display]
+    return random.sample(photos, len(photos))

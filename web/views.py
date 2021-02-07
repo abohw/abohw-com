@@ -13,25 +13,21 @@ def error404(request, exception):
 
 def webHome(request):
 
-    countries = Checkin.objects.values('country').annotate(cc=Count('country')).count()
-    states = Checkin.objects.filter(country='United States').values('state').annotate(cc=Count('state')).count()
-    coffee_shops = Checkin.objects.filter(date__range=[datetime.date.today() - datetime.timedelta(days=365), datetime.date.today()]).filter(category__exact='Coffee Shops').values('venueid').distinct().count()
-    places = Checkin.objects.filter(date__range=[datetime.date.today() - datetime.timedelta(days=365), datetime.date.today()]).values('venueid').distinct().count()
-    photos = flickrCache.objects.latest().numPastYear
+    numcountries = Checkin.objects.values('country').annotate(cc=Count('country')).count()
+    numstates = Checkin.objects.filter(country='United States').values('state').annotate(cc=Count('state')).count()
+    numcoffee_shops = Checkin.objects.filter(date__range=[datetime.date.today() - datetime.timedelta(days=365), datetime.date.today()]).filter(category__exact='Coffee Shops').values('venueid').distinct().count()
+    numplaces = Checkin.objects.filter(date__range=[datetime.date.today() - datetime.timedelta(days=365), datetime.date.today()]).values('venueid').distinct().count()
+    numphotos = flickrCache.objects.latest().numPastYear
 
-    randoms = []
-
-    for photo in cache.get('flickr_faves'):
-        if photo['sfw'] is True:
-            randoms.append(photo)
+    photos = cache.get('flickr_faves')
 
     response = render(request, 'index.html', {
-        'numCountries': countries,
-        'numStates': states,
-        'numCoffeeShops': coffee_shops,
-        'numPlaces' : places,
-        'numPhotos' : photos,
-        'photos' : random.sample(randoms, len(randoms))[:4],
+        'numCountries': numcountries,
+        'numStates': numstates,
+        'numCoffeeShops': numcoffee_shops,
+        'numPlaces' : numplaces,
+        'numPhotos' : numphotos,
+        'photos' : random.sample(photos, len(photos))[:4],
         })
 
     return response
