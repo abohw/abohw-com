@@ -7,13 +7,16 @@ import random
 
 def photosHome(request, page=''):
 
-    try:
-        photos = getCollection(page)
+    if page == '' or page == 'people' or page == 'places':
+        try:
+            photos = getCollection(page)
 
-    except:
-        photos = None
+        except:
+            photos = None
 
-    return render(request, 'photos/index.html', { 'photos' : photos })
+        return render(request, 'photos/index.html', { 'photos' : photos })
+
+    else: return render(request, 'error404.html')
 
 
 def getCollection(page):
