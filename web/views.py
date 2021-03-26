@@ -17,7 +17,7 @@ def webHome(request):
     numstates = Checkin.objects.filter(country='United States').values('state').annotate(cc=Count('state')).count()
     numcoffee_shops = Checkin.objects.filter(date__range=[datetime.date.today() - datetime.timedelta(days=365), datetime.date.today()]).filter(category__exact='Coffee Shops').values('venueid').distinct().count()
     numplaces = Checkin.objects.filter(date__range=[datetime.date.today() - datetime.timedelta(days=365), datetime.date.today()]).values('venueid').distinct().count()
-    numphotos = flickrCache.objects.latest().numPastYear
+    numphotos = flickrCache.objects.latest('id').numPastYear
 
     photos = cache.get('flickr_faves')
 
