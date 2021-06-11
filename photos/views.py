@@ -45,6 +45,6 @@ def photosRandom(request):
     else:
         photos = cache.get('flickr_faves')
 
-    photo = random.choice(photos)
+    photos = random.sample(photos, 4)
 
-    return render(request, 'photos/random.html', { 'photo' : photo, })
+    return render(request, 'photos/random.html', { 'photos' : photos, })

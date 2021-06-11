@@ -46,10 +46,10 @@ class Command(BaseCommand):
             if album['id'] == '72157717269334156':
                 cache.set('flickr_places', self.prepPhotos(album.getPhotos(safe_search='2')), None)
             if album['id'] == '72157718184167491':
-                cache.set('flickr_faves', self.prepPhotos(album.getPhotos(safe_search='1', per_page='250')), None)
+                cache.set('flickr_faves', self.prepPhotos(random.sample(album.getPhotos(safe_search='1', per_page='500'), 50)), None)
 
         cache.set('flickr_latest', self.prepPhotos(me.getPublicPhotos(safe_search='1', per_page='30')), None)
-        cache.set('flickr_random', self.prepPhotos(me.getPhotos(safe_search='2', per_page='500')), None)
+        cache.set('flickr_random', self.prepPhotos(random.sample(me.getPhotos(safe_search='2', per_page='500'), 4)), None)
 
         numPastYear = me.getPhotoCounts(
             taken_dates='%s,%s' % (

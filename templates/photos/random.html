@@ -30,14 +30,17 @@
         </div>
     </div>
 
+    {% if photos %}
 
-    <div class="container-lg">
+    <div class="container-lg gallery">
 
-         <div class="row justify-content-center align-items-center">
+         <div class="row row-cols-1 row-cols-md-2 justify-content-center align-items-center">
 
-            <div class="col" style="padding: 25px;">
-              <img src="{{ photo.full }}" alt="{{ photo.caption }}" loading="lazy" class="img-fluid rounded mx-auto d-block" style="max-height: 1000px;">
-            </div>
+          {% for photo in photos %}
+            <div class="col" style="padding: 25px;"><a href="{{ photo.full }}">
+              <img src="{{ photo.thumb }}" alt="{{ photo.caption }}" loading="lazy" class="img-fluid img-thumbnail mx-auto d-block" style="max-height: 400px;">
+            </a></div>
+          {% endfor %}
 
       </div>
     </div>
@@ -49,6 +52,21 @@
         </span>
       </div>
     </nav>
+
+    <script src="{% static 'js/simple-lightbox.min.js' %}"></script>
+    <script>
+      (function() {
+        var $gallery = new SimpleLightbox('.gallery a', {
+          disableRightClick: true,
+          captionsData: 'alt',
+          showCounter: false,
+          animationSpeed: 200,
+          loop: false,
+          fadeSpeed: 100,
+        });
+      })();
+    </script>
+    {% endif %}
 
   <script src="{% static 'js/party.min.js' %}"></script>
   <script src="{% static 'js/konami.js' %}"></script>
