@@ -30,17 +30,14 @@
         </div>
     </div>
 
-    {% if photos %}
 
-    <div class="container-lg gallery">
+    <div class="container-lg">
 
-         <div class="row row-cols-1 row-cols-md-3 justify-content-center align-items-center">
+         <div class="row justify-content-center align-items-center">
 
-          {% for photo in photos %}
-            <div class="col" style="padding: 25px;"><a href="{{ photo.full }}">
-              <img src="{{ photo.thumb }}" alt="{{ photo.caption }}" loading="lazy" class="img-fluid img-thumbnail mx-auto d-block" style="max-height: 400px;">
-            </a></div>
-          {% endfor %}
+            <div class="col" style="padding: 25px;">
+              <img src="{{ photo.full }}" alt="{{ photo.caption }}" loading="lazy" class="img-fluid rounded mx-auto d-block" style="max-height: 1000px;">
+            </div>
 
       </div>
     </div>
@@ -53,19 +50,31 @@
       </div>
     </nav>
 
-    <script src="{% static 'js/simple-lightbox.min.js' %}"></script>
-    <script>
-      (function() {
-        var $gallery = new SimpleLightbox('.gallery a', {
-          disableRightClick: true,
-          captionsData: 'alt',
-          showCounter: false,
-          animationSpeed: 200,
-          loop: false,
-          fadeSpeed: 100,
-        });
-      })();
-    </script>
-    {% endif %}
+  <script src="{% static 'js/party.min.js' %}"></script>
+  <script src="{% static 'js/konami.js' %}"></script>
+
+  <script>
+    var easter_egg = new Konami(function() {
+      party.screen({
+        count: 500 * (window.innerWidth / 1980),
+        countVariation: 0.5,
+        angleSpan: 0,
+        yVelocity: -100,
+        yVelocityVariation: 2,
+        rotationVelocityLimit: 6,
+        scaleVariation: 0.8
+      });
+
+     window.setTimeout(function() {
+     var enableNsfw = confirm('nsfw mode enabled. continue?');
+     if(enableNsfw){
+        var date = new Date();
+        date.setTime(date.getTime() + 7200000);
+        document.cookie = "nsfw=true;expires=" + date.toUTCString();
+        window.location.reload(true);
+       } }, 2500);
+
+     });
+  </script>
 
 {% endblock %}

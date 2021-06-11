@@ -35,3 +35,16 @@ def getCollection(page):
 
     photos = photos[:display]
     return random.sample(photos, len(photos))
+
+
+def photosRandom(request):
+
+    if request.COOKIES.get('nsfw') or request.user.is_authenticated:
+        photos = cache.get('flickr_random')
+
+    else:
+        photos = cache.get('flickr_faves')
+
+    photo = random.choice(photos)
+
+    return render(request, 'photos/random.html', { 'photo' : photo, })

@@ -47,6 +47,7 @@ class Command(BaseCommand):
                 cache.set('flickr_faves', self.prepPhotos(album.getPhotos(safe_search='1', per_page='250')), None)
 
         cache.set('flickr_latest', self.prepPhotos(me.getPublicPhotos(safe_search='1', per_page='30')), None)
+        cache.set('flickr_random', self.prepPhotos(me.getPhotos(safe_search='2', per_page='500')), None)
 
         numPastYear = me.getPhotoCounts(
             taken_dates='%s,%s' % (

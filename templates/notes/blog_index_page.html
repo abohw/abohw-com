@@ -9,16 +9,16 @@
 
 {% block content %}
 
-    <div class="container-lg" style="margin-top: 25px;">
+    <div class="container-lg">
 
       {% for post in posts %}
        {% with post=post.specific %}
-      <div class="row align-items-center justify-content-start" style="padding:15px;">
+      <div class="row align-items-center justify-content-start" style="margin-top:25px; padding: 30px; background: #b2bec3;">
 
         {% with post.main_image as main_image %}
          {% if main_image %}
         <div class="col-auto" style="padding: 10px;">
-          {% image main_image fill-160x100 class="img-thumbnail" %}
+          {% image main_image fill-200x125 class="img-thumbnail" %}
         </div>
          {% endif %}
         {% endwith %}
