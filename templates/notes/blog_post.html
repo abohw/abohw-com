@@ -28,6 +28,14 @@
 
             <p class="lead" style="padding-bottom: 15px;">{{ page.intro }}</p>
 
+             {% with post.main_image as main_image %}
+             {% if main_image %}
+            <div class="col-auto text-center" style="padding: 10px;">
+              {% image main_image fill-400x250 class="img-thumbnail" %}
+            </div>
+             {% endif %}
+            {% endwith %}
+
             <p>{{ page.body|richtext }}</p>
 
             {% if page.gallery_images %}
@@ -48,5 +56,13 @@
       </div>
 
     </div>
+
+    <nav class="navbar sticky-bottom navbar-light bg-light">
+      <div class="container-md justify-content-end">
+        <span class="navbar-text">
+          © 2021 Alex Bowman. All rights reserved.
+        </span>
+      </div>
+    </nav>
 
 {% endblock %}
