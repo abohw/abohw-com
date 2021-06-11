@@ -31,22 +31,13 @@
              {% with page.main_image as main_image %}
              {% if main_image %}
             <div class="col-auto text-center" style="padding: 10px;">
-              {% image main_image fill-1000x625 class="img-thumbnail" %}
+              {% image main_image fill-600x375 class="img-thumbnail" %}
             </div>
              {% endif %}
             {% endwith %}
 
             <p>{{ page.body|richtext }}</p>
 
-            {% if page.gallery_images %}
-            <div class="container-flex">
-              <div class="row row-cols-1 row-cols-md-3">
-             {% for item in page.gallery_images.all %}
-                <div class="col">
-                  {% image item.image width-500 class="rounded img-fluid" %}<br>
-                  <small>{{ item.caption }}</small>
-                </div>
-            {% endfor %}
             </div>
            </div>
           {% endif %}
