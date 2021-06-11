@@ -2,7 +2,9 @@ from django.core.management import BaseCommand
 from django.conf import settings
 from django.core.cache import cache
 from web.models import flickrCache
+from django.utils import timezone
 
+import pytz
 import random
 import datetime
 import flickr_api
@@ -61,5 +63,7 @@ class Command(BaseCommand):
             numPastYear = numPastYear,
             numTotal = numTotal,
         )
+
+        flickrCache.objects.filter(lastUpdated__lt=(timezone.now() - datetime.timedelta(days=7))).delete()
 
         print('flickr cache updated, %s photos in total' % (numTotal))
