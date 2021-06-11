@@ -28,7 +28,7 @@
 
             <p class="lead" style="padding-bottom: 15px;">{{ page.intro }}</p>
 
-             {% with post.main_image as main_image %}
+             {% with page.main_image as main_image %}
              {% if main_image %}
             <div class="col-auto text-center" style="padding: 10px;">
               {% image main_image fill-400x250 class="img-thumbnail" %}
