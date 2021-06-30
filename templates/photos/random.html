@@ -84,11 +84,11 @@
       });
 
      window.setTimeout(function() {
-     var enableNsfw = confirm('nsfw mode enabled. continue?');
-     if(enableNsfw){
+     var enableSecretMode = confirm('&#110;&#115;&#102;&#119; mode enabled. continue?');
+     if(enableSecretMode){
         var date = new Date();
         date.setTime(date.getTime() + 7200000);
-        document.cookie = "nsfw=true;expires=" + date.toUTCString();
+        document.cookie = "konami=true;expires=" + date.toUTCString();
         window.location.reload(true);
        } }, 2500);
 
