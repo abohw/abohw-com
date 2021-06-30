@@ -28,17 +28,9 @@
 
             <p class="lead" style="padding-bottom: 15px;">{{ page.intro }}</p>
 
-             {% with page.main_image as main_image %}
-              {% if main_image %}
-             <div class="col-auto text-center" style="padding: 10px;">
-               {% image main_image fill-600x375 class="img-thumbnail" %}
-             </div>
-              {% endif %}
-             {% endwith %}
-
             <hr style="color: #fd79a8; height: 2px;">
 
-            <p>{{ page.body|richtext }}</p>
+            <p style="padding-top:15px;">{{ page.body|richtext }}</p>
 
           </div>
         </div>
