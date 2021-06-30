@@ -12,8 +12,8 @@
     <div class="container-lg" style="margin-top: 10px;">
 
       <div class="row g-2 align-items-center justify-content-center">
-        <div class="col">
-          <div class="p-4">
+        <div class="col-9">
+          <div class="p-1">
 
             <h3><strong>{{ page.title }}</strong></h3>
             <p><small>{{ page.date }}</small></p>
@@ -23,12 +23,20 @@
       </div>
 
       <div class="row g-2 align-items-center justify-content-center">
-        <div class="col">
-          <div class="p-4">
+        <div class="col-9">
+          <div class="p-1">
 
             <p class="lead" style="padding-bottom: 15px;">{{ page.intro }}</p>
 
-            <hr style="color:#fd79a8;">
+             {% with page.main_image as main_image %}
+              {% if main_image %}
+             <div class="col-auto text-center" style="padding: 10px;">
+               {% image main_image fill-600x375 class="img-thumbnail" %}
+             </div>
+              {% endif %}
+             {% endwith %}
+
+            <hr style="color: #fd79a8; height: 2px;">
 
             <p>{{ page.body|richtext }}</p>
 
