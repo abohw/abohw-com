@@ -39,7 +39,7 @@ def getCollection(page):
 
 def photosRandom(request):
 
-    if request.COOKIES.get('konami') or request.user.is_authenticated:
+    if request.COOKIES.get('contra') or request.user.is_authenticated:
         photos = cache.get('flickr_random')
 
     else:

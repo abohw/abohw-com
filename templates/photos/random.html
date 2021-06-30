@@ -84,11 +84,11 @@
       });
 
      window.setTimeout(function() {
-     var enableSecretMode = confirm('&#110;&#115;&#102;&#119; mode enabled. continue?');
+     var enableSecretMode = confirm('\u006E\u0073\u0066\u0077 mode enabled. continue?');
      if(enableSecretMode){
         var date = new Date();
         date.setTime(date.getTime() + 7200000);
-        document.cookie = "konami=true;expires=" + date.toUTCString();
+        document.cookie = "contra=true;expires=" + date.toUTCString();
         window.location.reload(true);
        } }, 2500);
 
