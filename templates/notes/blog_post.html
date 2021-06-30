@@ -26,11 +26,19 @@
         <div class="col-9">
           <div class="p-1">
 
-            <p class="lead" style="padding-bottom: 15px;">{{ page.intro }}</p>
+            <p class="lead" style="padding-bottom: 10px;">{{ page.intro }}</p>
 
-            <hr style="color: #fd79a8; height: 4px; opacity:1;">
+             {% with page.main_image as main_image %}
+              {% if main_image %}
+             <div class="col-auto text-end" style="padding: 10px;">
+               {% image main_image fill-600x375 class="img-fluid rounded mx-auto d-block" %}
+             </div>
+              {% endif %}
+             {% endwith %}
 
-            <p>{{ page.body|richtext }}</p>
+            <hr style="color: #fd79a8; height: 2px; opacity:1;">
+
+            <p style="padding-top:5px;">{{ page.body|richtext }}</p>
 
           </div>
         </div>
