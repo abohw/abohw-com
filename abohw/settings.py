@@ -53,6 +53,8 @@ INSTALLED_APPS = [
     'django.contrib.humanize',
     'wagtail.contrib.forms',
     'wagtail.contrib.redirects',
+    'wagtail.contrib.settings',
+    'wagtail_feeds',
     'wagtail.embeds',
     'wagtail.sites',
     'wagtail.users',
