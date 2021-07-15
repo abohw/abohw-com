@@ -32,7 +32,7 @@ urlpatterns = [
     path('photos/', photosHome, name='photos'),
     path('photos/random', photosRandom, name='random-photo'),
     path('photos/<str:page>', photosHome),
-    path('notes/', include('notes.urls')),
+#    path('notes/', include('notes.urls')),
     path('', webHome, name='home'),
     path('sitemap.xml', sitemap, {'sitemaps': sitemaps},
      name='django.contrib.sitemaps.views.sitemap')
