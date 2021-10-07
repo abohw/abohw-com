@@ -6,6 +6,12 @@
 {% block og-title %}alex bowman{% endblock %}
 {% block og-description %}Product Manager and Entrepreneur in Austin, Texas{% endblock %}
 
+{% block css-overrides %}
+
+    @import url('https://fonts.googleapis.com/css2?family=Gaegu:wght@700&display=swap');
+
+{% endblock %}
+
 {% block content %}
 
     <div class="container-md">
@@ -14,9 +20,10 @@
 
         <div class="col-auto text-center text-sm-start">
 
-          <h1>Hi. I'm Alex Bowman.</h1>
+          <h1 style="font-family: 'Gaegu'; font-size: 48px;">Hi! 👋<br>
+              I'm Alex Bowman.</h1>
 
-          <h2>Product Manager and Entrepreneur in Austin, Texas</h2>
+          <h2 style="margin-top: 15px;">An experienced Product Owner and Entrepreneur in Austin, Texas.</h2>
           <p>I also enjoy coffee, traveling, and photography.</p>
 
           <!-- <p style="color: #636e72; padding-top: 25px;">Since I started using Foursquare, I've visited {{ numCountries }} countries and {{ numStates }} states.</p> -->

@@ -1,0 +1,339 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}alex bowman{% endblock %}
+{% block og-title %}portfolio{% endblock %}
+{% block og-description %}Alex Bowman's portfolio of work.{% endblock %}
+
+{% block css-overrides %}
+
+    @import url('https://fonts.googleapis.com/css2?family=Gaegu:wght@700&display=swap');
+
+    p {
+        color: #2d3436;
+    }
+
+    ul, li {
+        color: #2d3436;
+        font-size: 18px;
+    }
+
+    ul.results {
+        list-style-type: circle;
+    }
+
+    li:not(:last-child) {
+        margin-bottom: 10px;
+    }
+
+{% endblock %}
+
+{% block content %}
+
+    <div class="container-md">
+
+        <div class="row align-items-center justify-content-center justify-content-md-between" style="margin: 15px auto;">
+
+        <div class="col-auto text-center text-sm-start align-middle">
+
+          <h1 style="font-family: 'Gaegu'; font-size: 48px;">Hi! 👋<br>
+              I'm Alex Bowman.</h1>
+
+          <h2 style="margin-top: 15px;">An experienced Product Owner and Entrepreneur in Austin, Texas.</h2>
+          <p>I also enjoy coffee, traveling, and photography.</p>
+
+          <p style="padding-top: 25px;">
+
+                <a href="#learn-more" class="btn btn-outline-secondary btn-lg" tabindex="-1" role="button" aria-disabled="true">
+                    Learn More
+                </a>
+
+               <a href="mailto:alex@abohw.com" style="border-color:#6c5ce7; background: #6c5ce7;" class="btn btn-primary btn-lg" tabindex="-1" role="button" aria-disabled="true">
+                    Contact Me
+                </a>
+
+          </p>
+
+        </div>
+
+        <div class="col-auto" style="padding:10px;">
+
+          <img class="rounded img-fluid" style="max-width: 300px;" src="{% static 'img/alex-headshot.jpg' %}" alt="Alex Bowman">
+
+        </div>
+      </div>
+
+    <div class="row row-cols-1 row-cols-md-2 g-2">
+
+      <div class="col" style="padding:10px;">
+        <div class="card h-100 border-dark">
+          <div class="card-header">Mention in The New York Times</div>
+          <div class="card-body">
+            <h5 class="card-title" style="font-size: 18px;">Best Twitter ad practices include narrow targets, videos and brevity</h5>
+            <h6 class="card-subtitle mb-2 text-muted">
+              <a class="card-link" style="color: #6c5ce7; text-decoration: none;" target="_blank" href="https://www.nytimes.com/2015/01/22/business/smallbusiness/on-twitter-best-advertising-practices-include-narrow-targets-videos-and-brevity.html">
+                Read article
+              </a>
+            </h6>
+            <p class="card-text" style="font-size: 16px; color: #636e72;">
+              More than four years after introducing advertising on its platform, Twitter has changed the way businesses create ads. And as with any game in which the rules have shifted, players adapt by developing new strategies.
+            </p>
+          </div>
+          <div class="card-footer">
+            <small class="text-muted">January 21, 2015</small>
+          </div>
+        </div>
+      </div>
+
+      <div class="col" style="padding:10px;">
+        <div class="card h-100 border-dark">
+          <div class="card-header">Mention in The Cincinnati Enquirer</div>
+          <div class="card-body">
+            <h5 class="card-title" style="font-size: 18px;">Brandery startup aims to change home buying</h5>
+            <h6 class="card-subtitle mb-2 text-muted">
+              <a class="card-link" style="color: #6c5ce7; text-decoration: none;" target="_blank" href="https://www.cincinnati.com/story/money/business/2015/09/01/brandery-startup-aims-change-home-buying/71505968/">
+                Read article
+              </a>
+            </h6>
+            <p class="card-text" style="font-size: 16px; color: #636e72;">
+              When Alex Bowman and his wife moved back to Cincinnati last year, they thought they knew what neighborhood they wanted to live in. After all, they had grown up here and they knew the different communities.
+            </p>
+          </div>
+          <div class="card-footer">
+            <small class="text-muted">September 1, 2015</small>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    </div>
+
+    <div id="learn-more" class="container-fluid" style="margin-top: 25px; background: #ffffff;">
+
+        <div class="container-md">
+
+            <div class="row align-items-center justify-content-center">
+
+                <div class="col" style="margin-top:25px;">
+
+                    <h2 style="color: #636e72;"><strong>
+                        What I Do
+                    </strong></h2>
+
+                    <div class="container-fluid" style="padding: 25px;">
+
+                        <p>Blah blah blah...</p>
+
+                    </div>
+
+                    <h2 style="color: #636e72;"><strong>How I Work</strong></h2>
+
+                    <div class="container-fluid" style="padding: 25px;">
+
+                        <ul class="results">
+                            <li>I'm highly pragmatic and data-driven. I always want to see the data. There are times when you have to trust your gut to
+                                make certain decisions, but many decisions can be made by simply looking at the data.</li>
+                            <li>I always look for ways to invoke the Pareto principle, identifying ways that we can simplify work and achieve most of the benefit. However, I also believe that we should leave the room cleaner than it was found, meaning we should identify opportunities to address technical or design debt while we're working on tangential projects.</li>
+                            <li>Major initiatives and strategic decisions should have a short (up to 6 pages, ideally 1-2) document outlining them. Slides are great as a visual for big meetings, but documents are best for nearly everything else.</li>
+                            <li>I'm big on using JIRA effectively, specifically: good usage of epics, well-defined tickets, and tickets that outline the status of experiments and initiatives well (why are we doing it, what's the current status, and what's next). I also strongly believe in effective backlog refinement: sprints shouldn't have tickets hang over to the next one.</li>
+                            <li>I value transparency. If things aren't going well, I like to know just as much as when things are going well. We can work it out together. Similarly, I like to understand why questions are being asked; added context can unlock a better answer.</li>
+                            <li>I used to work at Amazon and their leadership principles were ingrained in me, but one in particular sticks out: "disagree and commit". Sometimes we may disagree on how best to tackle something, but once the team gets bought in on something, it's important to fall in line and push forward. I do it and I expect the team to as well.</li>
+                            <li>I believe meetings should always have an agenda. We have so many meetings at Indeed, so it's important to ensure that the ones we do have are 1) necessary, 2) properly allotted for time, and 3) have a clear purpose and outcome.</li>
+                        </ul>
+
+                    </div>
+
+                    <h2 style="color: #636e72;"><strong>Experience</strong></h2>
+
+                    <div class="container-fluid" style="padding: 25px;">
+
+                        <p>
+                            <strong>Founder</strong> <br>
+                            <small>TTNY Labs (2021 - now)</small>
+                        </p>
+
+                        <p>
+                            We're a product incubator and consultancy, working with growth-stage companies while building new solutions in-house.
+                            Our first project is <a style="color: #6c5ce7; text-decoration: none;" href="https://filmstock.app" target="_blank">Filmstock</a>, an app that helps film photographers find refurbished film cameras and the best prices for their favorite film stocks.
+                        </p>
+
+                        <hr noshade width="95%" class="text-center" style="margin: 25px auto;">
+
+                        <p>
+                            <strong>Product Director</strong> <br>
+                            <small>Indeed.com (2018 - 2021)</small>
+                        </p>
+
+                        <p>Indeed acquired Interviewed with the goal of integrating their assessments product into
+                            the Indeed ecosystem, enabling job seekers to showcase their skills to employers. The startup's team
+                            was fairly small and I was brought in to build and quickly scale Assessments within Indeed.</p>
+
+                        <p>
+                            Initially, I led the MyIndeed integration and Assessments for Enterprise.
+                            I soon became lead for all of Assessments (including assessment creation),
+                            then became the lead of the worldwide Candidate Quality team (adding screening questions
+                            and machine learning products related to candidate discovery).
+                        </p>
+
+                        <ul class="results">
+                            <li>Launched Indeed Assessments and integrated with all key Indeed products</li>
+                            <li>Scaled Assessments to 200MM annual completed assessments in 21 countries</li>
+                            <li></li>
+                        </ul>
+
+                        <hr noshade width="95%" class="text-center" style="margin: 25px auto;">
+
+                        <p>
+                            <strong>Product Manager</strong> <br>
+                            <small>Snap Inc. (2018)</small>
+                        </p>
+
+                        <p>
+                            I joined the Snap Inc. revenue team to work on small business initiatives, but
+                            my time there was like Snapchat's messaging: ephemeral.</p>
+
+                        <hr noshade width="95%" class="text-center" style="margin: 25px auto;">
+
+                        <p>
+                            <strong>Senior Product Manager</strong> <br>
+                            <small>Everything But The House (2017 - 2018)</small>
+                        </p>
+
+                        <p>
+                            Everything But The House (EBTH) is an online estate sale marketplace.
+                        </p>
+
+                        <p>
+                            Here, I owned the entire buyer experience, along with seller acquisition. My focus was primarily to
+                            improve discovery in our marketplace, which was an interesting challenge since most items are one-of-a-kind.
+                        </p>
+
+                        <ul class="results">
+                            <li></li>
+                        </ul>
+
+                        <hr noshade width="95%" class="text-center" style="margin: 25px auto;">
+
+                        <p>
+                            <strong>Co-Founder & CEO</strong> <br>
+                            <small>Casamatic (2014 - 2017)</small>
+                        </p>
+
+                        <p>
+                            In 2014, I started Casamatic to make it easier for people to find their perfect home.  My wife and I
+                            had just purchased a home for the second time, and stumbled upon a home in an area we knew nothing about.
+                            Instead of starting with a map view, we decided to build an algorithm. And it worked.
+                        </p>
+
+                            my co-founder Chris and I had an idea to make it easier for people to find their perfect home.</p>
+
+                        <p>My role at Casamatic was everything except for the engineering.  I led product (customer interviews, ...),
+                            marketing (performance marketing, content marketing, PR), fundraising, and sales.</p>
+
+                        <ul class="results">
+                            <li>Grew from 0 to 10,000 monthly active users in the first year, consistently growing ~20% each month</li>
+                            <li>Raised $1.1 million in seed funding</li>
+                            <li>Sold homes</li>
+                            <li>Ran a wildly successful blog and content marketing</li>
+                            <li>Invited to attend The Brandery, a best-in-class startup accelerator</li>
+                        </ul>
+
+                        <hr noshade width="95%" class="text-center" style="margin: 25px auto;">
+
+                        <p>
+                            <strong>Head of Marketing</strong> <br>
+                            <small>ChoreMonster (2013 - 2014)</small>
+                        </p>
+
+                        <p>
+                            ChoreMonster was an app that incentivized kids to do their chores.  I was brought in shortly after
+                            their seed round was closed, when the company went from about 4 employees to 12. During my tenure, we
+                            participated in the Disney Accelerator (powered by Techstars).
+                        </p>
+
+                        <p>
+                            Like any startup, I wore many hats here.  Primarily, I was their sole marketing person, but I also dabbled
+                            in operations, sales, and business development. I created the company’s growth marketing strategy from scratch, focusing on scrappy,
+                            highly targeted TV advertising and content marketing, quadrupling base of families in under a year on the team.
+                            I also closed $100,000 in ad sales with Kroger and Procter & Gamble.
+                            Finally, I led business development efforts during the company’s time with Disney, meeting with all levels
+                            of Disney (including their CEO!) on confidential products and partnership opportunities.
+                        </p>
+
+                        <hr noshade width="95%" class="text-center" style="margin: 25px auto;">
+
+                        <p>
+                            <strong>Marketing Manager</strong> <br>
+                            <small>Amazon.com (2011 - 2013)</small>
+                        </p>
+
+                        <p>
+                            I joined the Amazon Appstore team when it was just a third-party app store, and during my time there,
+                            we became the app store on a new and wildly popular category of devices: Kindle Fire.  I was the second
+                            member of the Developer Marketing team, and our objective was to get <i>every app</i> for our customers.
+                        </p>
+
+                        <p>
+                            I managed the Appstore's content strategy and execution (i.e. social media, a technical blog, e-mail marketing).
+                            I also led our marketing campaigns to app developers, including
+                            conference attendance (SXSW, AWS re: Invent, AnDevCon), display advertising, and special incentives.
+                            And I led the analysis and reporting on campaigns, including forecasting, for our weekly business reviews.
+                        </p>
+
+                        <hr noshade width="95%" class="text-center" style="margin: 25px auto;">
+
+                        <p>
+                            <strong>Manager, Channel Sales</strong> <br>
+                            <small>BlackBerry (2006 - 2011)</small>
+                        </p>
+
+                        <p>
+                            I was at BlackBerry during their heyday, starting from right before the launch of the BlackBerry Pearl
+                            and leaving shortly after the launch of the BlackBerry PlayBook.  At the time, BlackBerry was a force to be reckoned with,
+                            with extremely popular smartphones with features like BlackBerry Messenger (BBM). Of course, we all know the reckoning did eventually come.
+                            I was on the team that supported one of their major carrier partners in the US.
+                        </p>
+
+                        <p>
+                            I was promoted to a leadership role in 2010 to lead and grow a high-performance channel sales team.
+                            My role was primarily coming up with and executing programs to accelerate BlackBerry sell-through, which drove approx. +20%
+                            revenue growth YoY when compared to other teams. I mostly worked with
+                            senior carrier leadership (VP and SVPs), especially ahead of our regular new product launches.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="container-md">
+
+        <div class="row" style="padding: 50px;">
+            <div class="col">
+
+               <p class="text-center">
+                   Let's <strong>work together</strong> on something awesome.
+               </p>
+
+               <p class="text-center"><a href="mailto:alex@abohw.com" style="border:0px; background: #6c5ce7;" class="btn btn-primary" tabindex="-1" role="button" aria-disabled="true">
+                    Email Alex
+                </a></p>
+
+            </div>
+        </div>
+    </div>
+
+    <nav class="navbar sticky-bottom navbar-light bg-light">
+      <div class="container-md justify-content-end">
+        <span class="navbar-text">
+          © 2021 Alex Bowman. All rights reserved.
+        </span>
+      </div>
+    </nav>
+
+{% endblock %}

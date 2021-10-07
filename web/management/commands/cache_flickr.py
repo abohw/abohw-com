@@ -33,6 +33,7 @@ class Command(BaseCommand):
                     'thumb': 'https://farm%s.staticflickr.com/%s/%s_%s_c.jpg' % (p['farm'], p['server'], p['id'], p['secret']),
                     'full': 'https://farm%s.staticflickr.com/%s/%s_%s_b.jpg' % (p['farm'], p['server'], p['id'], p['secret']),
                     'caption': p['title'],
+                    'safety': p['safety_level'],
                 })
 
         return results

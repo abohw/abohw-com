@@ -21,6 +21,7 @@ from .sitemaps import StaticViewSitemap
 from django.conf.urls import handler404
 from django.contrib.sitemaps.views import sitemap
 from web.views import webHome
+from work.views import workHome
 from photos.views import photosHome, photosRandom
 
 sitemaps = {
@@ -29,6 +30,7 @@ sitemaps = {
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+#    path('work/', workHome, name='work'),
     path('photos/', photosHome, name='photos'),
     path('photos/random', photosRandom, name='random-photo'),
     path('photos/<str:page>', photosHome),

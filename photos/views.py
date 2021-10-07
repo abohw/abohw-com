@@ -39,12 +39,21 @@ def getCollection(page):
 
 def photosRandom(request):
 
+    photos = []
+
     if request.COOKIES.get('contra') or request.user.is_authenticated:
+
         photos = cache.get('flickr_random')
 
     else:
         photos = cache.get('flickr_faves')
 
-    photos = random.sample(photos, 4)
+    if len(photos) < 4:
+        max = len(photos)
+
+    else:
+        max = 4
+
+    photos = random.sample(photos, max)
 
     return render(request, 'photos/random.html', { 'photos' : photos, })
