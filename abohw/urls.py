@@ -30,7 +30,7 @@ sitemaps = {
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-#    path('work/', workHome, name='work'),
+    path('work/', workHome, name='work'),
     path('photos/', photosHome, name='photos'),
     path('photos/random', photosRandom, name='random-photo'),
     path('photos/<str:page>', photosHome),
