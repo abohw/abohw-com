@@ -40,6 +40,8 @@ FS_CLIENT_ID= os.getenv('FS_CLIENT_ID')
 FS_CLIENT_SECRET= os.getenv('FS_CLIENT_SECRET')
 FS_ACCESS_TOKEN= os.getenv('FS_ACCESS_TOKEN')
 
+SEKRIT_COOKIE= os.getenv('SEKRIT_COOKIE')
+
 # Application definition
 
 INSTALLED_APPS = [
