@@ -22,7 +22,7 @@ from django.conf.urls import handler404
 from django.contrib.sitemaps.views import sitemap
 from web.views import webHome
 from work.views import workHome
-from photos.views import photosHome, photosRandom
+from photos.views import photosHome, photosRandom, photosRandomApi
 
 sitemaps = {
     'static': StaticViewSitemap,
@@ -33,6 +33,7 @@ urlpatterns = [
     path('work/', workHome, name='work'),
     path('photos/', photosHome, name='photos'),
     path('photos/random', photosRandom, name='random-photo'),
+    path('photos/random/api', photosRandomApi),
     path('photos/<str:page>', photosHome),
 #    path('notes/', include('notes.urls')),
     path('', webHome, name='home'),

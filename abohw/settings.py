@@ -16,12 +16,15 @@ import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+# SECURITY WARNING: don't run with debug turned on in production!
+DEBUG = False
+
+if DEBUG is True:
+    from dotenv import load_dotenv
+    load_dotenv()
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
-
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.getenv('SECRET_KEY')
@@ -39,6 +42,8 @@ FLICKR_AUTH_SECRET = os.getenv('FLICKR_AUTH_SECRET')
 FS_CLIENT_ID= os.getenv('FS_CLIENT_ID')
 FS_CLIENT_SECRET= os.getenv('FS_CLIENT_SECRET')
 FS_ACCESS_TOKEN= os.getenv('FS_ACCESS_TOKEN')
+
+API_ACCESS_KEY= os.getenv('API_ACCESS_KEY')
 
 # Application definition
 
