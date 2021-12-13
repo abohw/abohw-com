@@ -75,6 +75,7 @@ def photosRandomApi(request):
 
             return JsonResponse({
                 'title': photo['caption'],
+                'thumb': photo['thumb'],
                 'url': photo['full'],
             })
 
