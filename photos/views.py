@@ -42,8 +42,7 @@ def photosRandom(request):
 
     photos = []
 
-    if request.COOKIES.get(settings.SEKRIT_COOKIE) or request.user.is_authenticated:
-
+    if request.user.is_authenticated:
         photos = cache.get('flickr_random')
 
     else:

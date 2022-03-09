@@ -68,33 +68,4 @@
     </script>
     {% endif %}
 
-  <!--
-  <script src="{% static 'js/party.min.js' %}"></script>
-  <script src="{% static 'js/konami.js' %}"></script>
-
-  <script>
-    var easter_egg = new Konami(function() {
-      party.screen({
-        count: 500 * (window.innerWidth / 1980),
-        countVariation: 0.5,
-        angleSpan: 0,
-        yVelocity: -100,
-        yVelocityVariation: 2,
-        rotationVelocityLimit: 6,
-        scaleVariation: 0.8
-      });
-
-     window.setTimeout(function() {
-     var enableSecretMode = confirm('\u006E\u0073\u0066\u0077 mode enabled. continue?');
-     if(enableSecretMode){
-        var date = new Date();
-        date.setTime(date.getTime() + 7200000);
-        document.cookie = "contra=true;expires=" + date.toUTCString();
-        window.location.reload(true);
-       } }, 2500);
-
-     });
-  </script>
-  -->
-
 {% endblock %}
