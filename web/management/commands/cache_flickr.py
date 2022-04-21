@@ -27,14 +27,16 @@ class Command(BaseCommand):
         for photo in photos:
             p = flickr_api.Photo.getInfo(photo)
 
-            if p['ispublic'] == 1 or p['isfriend'] == 1:
+            if p['media'] != 'video':
 
-                results.append({
-                    'thumb': 'https://farm%s.staticflickr.com/%s/%s_%s_c.jpg' % (p['farm'], p['server'], p['id'], p['secret']),
-                    'full': 'https://farm%s.staticflickr.com/%s/%s_%s_b.jpg' % (p['farm'], p['server'], p['id'], p['secret']),
-                    'caption': p['title'],
-                    'safety': p['safety_level'],
-                })
+                if p['ispublic'] == 1 or p['isfriend'] == 1:
+
+                    results.append({
+                        'thumb': 'https://farm%s.staticflickr.com/%s/%s_%s_c.jpg' % (p['farm'], p['server'], p['id'], p['secret']),
+                        'full': 'https://farm%s.staticflickr.com/%s/%s_%s_b.jpg' % (p['farm'], p['server'], p['id'], p['secret']),
+                        'caption': p['title'],
+                        'safety': p['safety_level'],
+                    })
 
         return results
 
