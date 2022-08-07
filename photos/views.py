@@ -42,11 +42,7 @@ def photosRandom(request):
 
     photos = []
 
-    if request.user.is_authenticated:
-        photos = cache.get('flickr_random')
-
-    else:
-        photos = cache.get('flickr_faves')
+    photos = cache.get('flickr_faves')
 
     if len(photos) < 4:
         max = len(photos)
@@ -57,28 +53,4 @@ def photosRandom(request):
     photos = random.sample(photos, max)
 
     return render(request, 'photos/random.html', { 'photos' : photos, })
-
-
-def photosRandomApi(request):
-
-    if not request.GET.get('token'):
-        return HttpResponse(status=404)
-
-    elif request.GET.get('token') != settings.API_ACCESS_KEY:
-        return HttpResponse(status=401)
-
-    else:
-
-        try:
-            photo = random.sample(cache.get('flickr_faves'), 1)[0]
-
-            return JsonResponse({
-                'title': photo['caption'],
-                'thumb': photo['thumb'],
-                'url': photo['full'],
-            })
-
-        except:
-
-            return HttpResponse(status=404)
 

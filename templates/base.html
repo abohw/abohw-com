@@ -74,15 +74,12 @@ $$  $$$$$$$$$$$$         mmm                "$m "$m
 
     <nav class="navbar navbar-expand-lg navbar-light">
       <div class="container-lg align-items-start">
-        {% if 'work' not in request.path %}
-        <a class="navbar-brand" href="#"><img class="img-fluid" src="{% static 'img/logo.png' %}" style="max-width: 125px;"></a>
-        {% endif %}
+        <a class="navbar-brand"><img class="img-fluid" src="{% static 'img/new-logo.png' %}" style="max-width: 125px;"></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            {% if 'work' not in request.path %}
             <li class="nav-item">
               <a class="nav-link" href="/" style="color: #2d3436;">About Me</a>
             </li>
@@ -92,20 +89,11 @@ $$  $$$$$$$$$$$$         mmm                "$m "$m
             <li class="nav-item">
               <a class="nav-link" href="/blog/" style="color: #2d3436;">Blog</a>
             </li>
-            {% endif %}
+          <li class="nav-item">
+              <a class="nav-link" href="/work-with-me/" style="color: #2d3436;">Work With Me</a>
+          </li>
           </ul>
           <ul class="navbar-nav justify-content-end">
-            {% if 'work' in request.path %}
-            <li class="nav-item">
-              <a class="nav-link" href="/blog/" style="color: #fd79a8; font-size: 18px;" target="_blank" alt="Alex's Blog"><i class="fas fa-blog"></i></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="https://linkedin.com/in/alexdbowman" style="color: #fd79a8; font-size: 18px;" target="_blank" alt="Alex's LinkedIn"><i class="fab fa-linkedin"></i></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="https://github.com/abohw/" style="color: #fd79a8; font-size: 18px;" target="_blank" alt="Alex's Github"><i class="fab fa-github"></i></a>
-            </li>
-            {% endif %}
             <li class="nav-item">
               <a class="nav-link" href="mailto:hi@abohw.com" style="color: #fd79a8; font-size: 18px;" target="_blank" alt="Contact Alex"><i class="far fa-paper-plane"></i></a>
             </li>

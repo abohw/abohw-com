@@ -43,9 +43,6 @@ FS_CLIENT_ID= os.getenv('FS_CLIENT_ID')
 FS_CLIENT_SECRET= os.getenv('FS_CLIENT_SECRET')
 FS_ACCESS_TOKEN= os.getenv('FS_ACCESS_TOKEN')
 
-SEKRIT_COOKIE= os.getenv('SEKRIT_COOKIE')
-API_ACCESS_KEY= os.getenv('API_ACCESS_KEY')
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -57,26 +54,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.sitemaps',
     'django.contrib.humanize',
-    'wagtail.contrib.forms',
-    'wagtail.contrib.redirects',
-    'wagtail.contrib.settings',
-    'wagtail_feeds',
-    'wagtail.embeds',
-    'wagtail.sites',
-    'wagtail.users',
-    'wagtail.snippets',
-    'wagtail.documents',
-    'wagtail.images',
-    'wagtail.search',
-    'wagtail.admin',
-    'wagtail.core',
-    'modelcluster',
-    'taggit',
-    'cloudinary_storage',
-    'cloudinary',
     'photos',
     'work',
-    'notes',
     'web',
 ]
 
@@ -89,7 +68,6 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'wagtail.contrib.redirects.middleware.RedirectMiddleware',
 ]
 
 ROOT_URLCONF = 'abohw.urls'
@@ -186,7 +164,3 @@ STATICFILES_DIRS = [
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/notes/media/'
-
-WAGTAIL_SITE_NAME = 'abohw.com'
-
-DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'

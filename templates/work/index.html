@@ -1,28 +1,28 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block title %}alex bowman{% endblock %}
-{% block og-title %}portfolio{% endblock %}
-{% block og-description %}Alex Bowman's portfolio of work.{% endblock %}
+{% block title %}work with alex bowman{% endblock %}
+{% block og-title %}work with alex bowman{% endblock %}
+{% block og-description %}A Product Manager and Entrepreneur in the Netherlands.{% endblock %}
 
 {% block css-overrides %}
-
-    @import url('https://fonts.googleapis.com/css2?family=Gaegu:wght@700&display=swap');
 
     p {
         color: #2d3436;
     }
 
-    ul, li {
+    li.results {
         color: #2d3436;
         font-size: 18px;
     }
 
     ul.results {
         list-style-type: circle;
+        color: #2d3436;
+        font-size: 18px;
     }
 
-    li:not(:last-child) {
+    li.results:not(:last-child) {
         margin-bottom: 10px;
     }
 
@@ -32,21 +32,28 @@
 
     <div class="container-md">
 
-        <div class="row align-items-center justify-content-center justify-content-md-between" style="margin: 15px auto;">
+        <div class="row align-items-center justify-content-center justify-content-md-between" style="margin: 25px auto;">
 
         <div class="col-auto text-center text-sm-start align-middle">
 
-          <h1 style="font-family: 'Gaegu'; font-size: 48px;">Hi! 👋<br>
-              I'm Alex Bowman.</h1>
+            <h2 style="font-size:28px;"><strong>Need some help with launching your new product?</strong></h2>
 
-          <h2 style="margin-top: 15px;">An experienced Product Owner and Entrepreneur in Austin, Texas.</h2>
-          <p>I also enjoy coffee, traveling, and photography.</p>
+            <p style="padding-top: 25px;">
+                I'm an experienced product leader with 7+ years of experience from founding my own startup
+                to large enterprises, including B2C products, B2B (SMB and enterprise), and marketplaces.
+                I love to help scope and scale new products; to take things "from 0 to 1".
+            </p>
+
+            <p>
+                And in addition to product management, growth marketing, and consulting, I'm able to prototype new products, and in many cases,
+                build out the entire MVP.
+            </p>
+
+            <p>
+                I currently reside in the Netherlands but work with clients worldwide, including in the United States.
+            </p>
 
           <p style="padding-top: 25px;">
-
-                <a href="#learn-more" class="btn btn-outline-secondary btn-lg" tabindex="-1" role="button" aria-disabled="true">
-                    Learn More
-                </a>
 
                <a href="mailto:alex@abohw.com" style="border-color:#6c5ce7; background: #6c5ce7;" class="btn btn-primary btn-lg" tabindex="-1" role="button" aria-disabled="true">
                     Contact Me
@@ -56,55 +63,7 @@
 
         </div>
 
-        <div class="col-auto" style="padding:10px;">
-
-          <img class="rounded img-fluid" style="max-width: 300px;" src="{% static 'img/alex-headshot.jpg' %}" alt="Alex Bowman">
-
-        </div>
       </div>
-
-    <div class="row row-cols-1 row-cols-md-2 g-2">
-
-      <div class="col" style="padding:10px;">
-        <div class="card h-100 border-dark">
-          <div class="card-header">Mention in The New York Times</div>
-          <div class="card-body">
-            <h5 class="card-title" style="font-size: 18px;">Best Twitter ad practices include narrow targets, videos and brevity</h5>
-            <h6 class="card-subtitle mb-2 text-muted">
-              <a class="card-link" style="color: #6c5ce7; text-decoration: none;" target="_blank" href="https://www.nytimes.com/2015/01/22/business/smallbusiness/on-twitter-best-advertising-practices-include-narrow-targets-videos-and-brevity.html">
-                Read article
-              </a>
-            </h6>
-            <p class="card-text" style="font-size: 16px; color: #636e72;">
-              More than four years after introducing advertising on its platform, Twitter has changed the way businesses create ads. And as with any game in which the rules have shifted, players adapt by developing new strategies.
-            </p>
-          </div>
-          <div class="card-footer">
-            <small class="text-muted">January 21, 2015</small>
-          </div>
-        </div>
-      </div>
-
-      <div class="col" style="padding:10px;">
-        <div class="card h-100 border-dark">
-          <div class="card-header">Mention in The Cincinnati Enquirer</div>
-          <div class="card-body">
-            <h5 class="card-title" style="font-size: 18px;">Brandery startup aims to change home buying</h5>
-            <h6 class="card-subtitle mb-2 text-muted">
-              <a class="card-link" style="color: #6c5ce7; text-decoration: none;" target="_blank" href="https://www.cincinnati.com/story/money/business/2015/09/01/brandery-startup-aims-change-home-buying/71505968/">
-                Read article
-              </a>
-            </h6>
-            <p class="card-text" style="font-size: 16px; color: #636e72;">
-              When Alex Bowman and his wife moved back to Cincinnati last year, they thought they knew what neighborhood they wanted to live in. After all, they had grown up here and they knew the different communities.
-            </p>
-          </div>
-          <div class="card-footer">
-            <small class="text-muted">September 1, 2015</small>
-          </div>
-        </div>
-      </div>
-    </div>
 
     </div>
 
@@ -116,38 +75,19 @@
 
                 <div class="col" style="margin-top:25px;">
 
-                    <h2 style="color: #636e72;"><strong>
-                        What I Do
-                    </strong></h2>
-
-                    <div class="container-fluid p-0 p-sm-4">
-
-                        <p>
-                            I'm an experienced product leader with 7+ years of experience from founding my own startup
-                            to large enterprises, including B2C products, B2B (SMB and enterprise), and marketplaces.
-                            I love to help scope and scale new products; to take things "from 0 to 1".
-                        </p>
-
-                        <p>
-                            And in addition to product management, marketing, and consulting, I'm able to prototype new products, and in many cases,
-                            build out the entire MVP.
-                        </p>
-
-                    </div>
-
                     <h2 style="color: #636e72;"><strong>How I Work</strong></h2>
 
                     <div class="container-fluid p-0 p-sm-4">
 
                         <ul class="results">
-                            <li>I'm highly pragmatic and data-driven. I always want to see the data. There are times when you have to trust your gut to
+                            <li class="results">I'm highly pragmatic and data-driven. I always want to see the data. There are times when you have to trust your gut to
                                 make certain decisions, but many decisions can be made by simply looking at the data.</li>
-                            <li>I always look for ways to invoke the Pareto principle, identifying ways that we can simplify work.</li>
-                            <li>Major initiatives and strategic decisions should have a short (up to 6 pages, ideally 1-2) document outlining them. Slides are great as a visual for big meetings, but documents are best for nearly everything else.</li>
-                            <li>I'm big on using feature trackers like JIRA effectively. I also strongly believe in effective backlog refinement: sprints shouldn't be an endless waterfall.</li>
-                            <li>I value transparency. If things aren't going well, I like to know just as much as when things are going well. We can work it out together. Similarly, I like to understand why questions are being asked; added context can unlock a better answer.</li>
-                            <li>I used to work at Amazon and their leadership principles were ingrained in me, but one in particular sticks out: "disagree and commit". Sometimes we may disagree on how best to tackle something, but once the team gets bought in on something, it's important to fall in line and push forward.</li>
-                            <li>I believe meetings should always have an agenda. We have so many meetings, so it's important to ensure that the ones we do have are 1) necessary, 2) properly allotted for time, and 3) have a clear purpose and outcome.</li>
+                            <li class="results">I always look for ways to invoke the Pareto principle, identifying ways that we can simplify work.</li>
+                            <li class="results">Major initiatives and strategic decisions should have a short (up to 6 pages, ideally 1-2) document outlining them. Slides are great as a visual for big meetings, but documents are best for nearly everything else.</li>
+                            <li class="results">I'm big on using feature trackers like JIRA effectively. I also strongly believe in effective backlog refinement: sprints shouldn't be an endless waterfall.</li>
+                            <li class="results">I value transparency. If things aren't going well, I like to know just as much as when things are going well. We can work it out together. Similarly, I like to understand why questions are being asked; added context can unlock a better answer.</li>
+                            <li class="results">I used to work at Amazon and their leadership principles were ingrained in me, but one in particular sticks out: "disagree and commit". Sometimes we may disagree on how best to tackle something, but once the team gets bought in on something, it's important to fall in line and push forward.</li>
+                            <li class="results">I believe meetings should always have an agenda. We have so many meetings, so it's important to ensure that the ones we do have are 1) necessary, 2) properly allotted for time, and 3) have a clear purpose and outcome.</li>
                         </ul>
 
                     </div>
@@ -185,9 +125,9 @@
                         </p>
 
                         <ul class="results">
-                            <li>Launched Indeed Assessments and integrated with all key Indeed products</li>
-                            <li>Scaled Assessments to 200MM annual completed assessments in 21 countries</li>
-                            <li>Led a sizable product team, with 5 direct reports and oversight of more than 20</li>
+                            <li class="results">Launched Indeed Assessments and integrated with all key Indeed products</li>
+                            <li class="results">Scaled Assessments to 200MM annual completed assessments in 21 countries</li>
+                            <li class="results">Led a sizable product team, with 5 direct reports and oversight of more than 20</li>
                         </ul>
 
                         <hr noshade width="95%" class="text-center" style="margin: 25px auto;">
@@ -222,8 +162,8 @@
                         </p>
 
                         <ul class="results">
-                            <li>Led a cross-functional team of 6 engineers and UX designers focused on user growth, engagement, and retention</li>
-                            <li>Increased daily active users +46% and session length +22% in < 6 months via user research, experiments, and optimization,
+                            <li class="results">Led a cross-functional team of 6 engineers and UX designers focused on user growth, engagement, and retention</li>
+                            <li class="results">Increased daily active users +46% and session length +22% in < 6 months via user research, experiments, and optimization,
                             with an emphasis on regularly featuring product recommendations, improving messaging efforts, and enhancing usability</li>
                         </ul>
 
@@ -246,11 +186,11 @@
                         </p>
 
                         <ul class="results">
-                            <li>Grew from 0 to 10,000 monthly active users in the first year, growing ~20% each month</li>
-                            <li>Raised $1.1 million in seed funding from VCs and angel investors</li>
-                            <li>Discovered and assisted with the purchase of numerous homes for our users</li>
-                            <li>Drove growth through a highly successful blog, with tens of thousands of views each month</li>
-                            <li>Graduated The Brandery, a best-in-class startup accelerator program</li>
+                            <li class="results">Grew from 0 to 10,000 monthly active users in the first year, growing ~20% each month</li>
+                            <li class="results">Raised $1.1 million in seed funding from VCs and angel investors</li>
+                            <li class="results">Discovered and assisted with the purchase of numerous homes for our users</li>
+                            <li class="results">Drove growth through a highly successful blog, with tens of thousands of views each month</li>
+                            <li class="results">Graduated The Brandery, a best-in-class startup accelerator program</li>
                         </ul>
 
                         <hr noshade width="95%" class="text-center" style="margin: 25px auto;">

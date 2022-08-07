@@ -15,6 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.views.generic.base import RedirectView
 from django.conf.urls.static import static
 from django.conf import settings
 from .sitemaps import StaticViewSitemap
@@ -22,7 +23,7 @@ from django.conf.urls import handler404
 from django.contrib.sitemaps.views import sitemap
 from web.views import webHome
 from work.views import workHome
-from photos.views import photosHome, photosRandom, photosRandomApi
+from photos.views import photosHome, photosRandom
 
 sitemaps = {
     'static': StaticViewSitemap,
@@ -30,13 +31,14 @@ sitemaps = {
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('work/', workHome, name='work'),
+    path('work-with-me/', workHome, name='work'),
+    path('work/', RedirectView.as_view(pattern_name='work', permanent=True)),
     path('photos/', photosHome, name='photos'),
     path('photos/random', photosRandom, name='random-photo'),
-    path('photos/random/api', photosRandomApi),
     path('photos/<str:page>', photosHome),
-#    path('notes/', include('notes.urls')),
     path('', webHome, name='home'),
+    path('blog/', RedirectView.as_view(url='https://medium.com/@abohw/', permanent=True)),
+    path('blog/<page>', RedirectView.as_view(url='https://medium.com/@abohw/%(page)s', permanent=False)),
     path('sitemap.xml', sitemap, {'sitemaps': sitemaps},
      name='django.contrib.sitemaps.views.sitemap')
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
