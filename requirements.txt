@@ -7,5 +7,5 @@ psycopg2==2.9.3
 pytz==2022.1
 requests==2.27.1
 six==1.16.0
-whitenoise==6.2.0
+whitenoise==5.3.0
 Willow==1.4.1
